@@ -1,0 +1,152 @@
+@import '../../../colors.scss';
+
+.settings {
+    display: flex;
+    justify-content: center;
+}
+
+.harm-wrapper {
+    width: 75vw;
+    height: 70vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.harm-container {
+    display: flex;
+    width: 70vw;
+    height: 94vh;
+    margin-top: 5vh;
+    min-height: 10vw;
+    max-height: 15vw;
+    justify-content: center;
+    align-items: center;
+    .left-mark {
+        display: flex;
+        height: 100%;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+        div {
+            background-color: $main-color;
+            height: 2px;
+            width: 90%;
+        }
+        margin: 8px;
+    }
+    .harm {
+        width: 100%;
+        height: 100%;
+        background-color: #404040;
+        display: flex;
+        border-radius: 2vw;
+        padding: 0 2vw;
+        align-items: center;
+        .hole {
+            .position {
+                width: 100%;
+                text-align: center;
+                margin-top: -1.8vw;
+                font-size: 1.8vw;
+            }
+            width: calc(10% - 4%);
+            margin: 0 2%;
+            height: 75%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            .note {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                box-sizing: border-box;
+                height: 40%;
+                width: 100%;
+                font-size: 1.5vw;
+                border: 2px solid #202020;
+                cursor: pointer;
+                &:hover {
+                    box-shadow: 0 0 8px white;
+                }
+            }            
+        }
+    }
+}
+
+.note-active {
+    &::before {
+        position: absolute;
+        margin-top: -80%;
+        margin-left: 50%;
+        font-size: 0.7vw;
+    }
+    box-shadow: 0 0 8px $main-color;
+    border: 2px solid $main-color !important;
+}
+
+.note-tonic {
+    &::before {
+        content: "I";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $tonic-color !important;
+    filter: drop-shadow(0 0 2px $tonic-color);
+}
+
+.note-second {
+    &::before {
+        content: "II";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $second-color !important;
+    filter: drop-shadow(0 0 2px $second-color);
+}
+.note-third {
+    &::before {
+        content: "III";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $third-color !important;
+    filter: drop-shadow(0 0 2px $third-color);
+}
+.note-fourth {
+    &::before {
+        content: "IV";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $fourth-color !important;
+    filter: drop-shadow(0 0 2px $fourth-color);
+}
+
+.note-fifth {
+    &::before {
+        content: "V";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $fifth-color !important;
+    filter: drop-shadow(0 0 2px $fifth-color);
+}
+
+.note-sixth {
+    &::before {
+        content: "VI";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $sixth-color !important;
+    filter: drop-shadow(0 0 2px $sixth-color);
+}
+.note-seventh {
+    &::before {
+        content: "VII";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $seventh-color !important;
+    filter: drop-shadow(0 0 2px $seventh-color);
+}
+
+.note-addition {
+    @extend .note-active;
+    border-bottom: 4px solid $addition-color !important;
+    filter: drop-shadow(0 0 2px $addition-color);
+}

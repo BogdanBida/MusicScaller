@@ -1,0 +1,62 @@
+@import "../../colors.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.file-chooser {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40vh;
+  margin-top: 5vh;
+  width: 75%;
+  label {
+    background-color: #202020;
+    width: 100%;
+    height: 100%;
+    border: 4px solid $main-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 4vh;
+    cursor: pointer;
+    transition: 1s;
+    &:hover {
+        box-shadow: inset 0 0 10vh rgba(255,255,255,0.1);
+    }
+  }
+  input {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    z-index: -1;
+  }
+}
+
+button {
+  width: 33.33%;
+  height: 10vh;
+  min-height: 40px;
+  margin: 5vh 0;
+  font-size: 6vh;
+  color: $main-color;
+  background-color: initial;
+  border: 4px solid $main-color;
+}
+
+.answer {
+  width: 100%;
+  border: 2px solid $main-color;
+  border-left: 0;
+  box-sizing: border-box;
+  border-right: 0;
+  height: 25vh;
+  margin-bottom: 5vh;
+}

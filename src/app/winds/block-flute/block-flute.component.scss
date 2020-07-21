@@ -1,0 +1,123 @@
+@import "../../../colors.scss";
+
+h2 {
+    width: 100%;
+    text-align: center;
+    height: 10vh;
+    margin: 0;
+}
+
+.settings {
+  height: 30vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.note-hole {
+  border-radius: 100%;
+  background-color: rgb(238, 221, 221);
+  position: relative;
+}
+
+.notelist {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  justify-content: space-evenly;
+  overflow-x: auto;
+  .note {
+      transition: 0.1s, filter 0.2s;
+      &:hover {
+          box-shadow: 0 0 4px  rgba(255,255,255,0.3);
+      }
+      &:active {
+          filter: brightness(1.5);
+          transition: filter 0s;
+      }
+    width: 5vw;
+    min-width: 16px;
+    max-width: 32px;
+    height: 40vh;
+    background-color: #1f1e19;
+    margin: 8px;
+    border-radius: 8px;
+    margin-top: 16px;
+    .mark {
+      text-align: center;
+      font-size: 12px;
+      position: relative;
+      padding-bottom: 2px;
+      top: -26px;
+    }
+    .holes-container {
+      height: calc(90% - 10px);
+      position: relative;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: space-between;
+      align-items: center;
+      .hole {
+        width: 1.3vh;
+        height: 1.3vh;
+        background-color: #707070;
+        @extend .note-hole;
+        &:first-of-type {
+          width: 2.5vh;
+          height: 2.5vh;
+        }
+        &:nth-of-type(7) {
+          left: 1vh;
+        }
+        &:nth-of-type(8) {
+          width: 0.7vh;
+          height: 0.7vh;
+          position: relative;
+          right: 0.6vh;
+          margin-bottom: -4.5vh;
+        }
+        &:nth-of-type(9) {
+          left: 1vh;
+        }
+        &:nth-of-type(10) {
+          width: 0.7vh;
+          height: 0.7vh;
+          position: relative;
+          right: 1vh;
+          margin-bottom: -4.5vh;
+        }
+      }
+    }
+  }
+  padding: 8px;
+  border-bottom: 2px solid $main-color;
+}
+
+.closed-hole {
+  background-color: white !important;
+  z-index: 10;
+  filter: drop-shadow(0px 0px 4px $main-color)
+    drop-shadow(0 2px 1px $main-color) drop-shadow(0 0 2px $main-color);
+}
+
+.half-closed-hole {
+  @extend .closed-hole;
+  background-image: repeating-linear-gradient(
+    90deg,
+    white,
+    white 50%,
+    black 50%,
+    black
+  );
+}
+
+.disable {
+  display: none;
+}
+
+.tonic {
+  border-bottom: 2px solid $tonic-color;
+  box-sizing: border-box;
+}

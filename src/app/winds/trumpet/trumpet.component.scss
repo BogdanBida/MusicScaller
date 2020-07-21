@@ -1,0 +1,160 @@
+@import "../../../colors.scss";
+
+.main-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 8px;
+  .col {
+    box-sizing: border-box;
+    padding: 2.5vw;
+    border-left: 2px solid #101020;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    align-items: center;
+    .col-item {
+      width: 2.5vw;
+      height: 2.5vw;
+      margin-bottom: calc(60vh / 16 - 1.25vw);
+      margin-top: calc(60vh / 16 - 1.25vw);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .note {
+      @extend .col-item;
+      border: 2px solid #8f8181;
+      font-size: 1vw;
+      border-radius: 50%;
+      box-sizing: border-box;
+      cursor: pointer;
+      text-shadow: 0 1px 8px black;
+      z-index: 4;
+    }
+    span {
+      @extend .note;
+      cursor: default;
+      border-width: 5px;
+      border-style: groove;
+      border-color: $main-color;
+      &::content {
+        z-index: 5;
+        font-size: 15px;
+        text-shadow: 0 1px 3px black;
+      }
+    }
+    .valves-row {
+      @extend .col-item;
+      width: auto;
+      display: flex;
+      border-bottom: 2px solid gray;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.valve {
+  background-color: rgb(255, 217, 0);
+  width: 1vw;
+  height: 1vw;
+  margin: 0 2px;
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: -1px 5px 5px black;
+}
+
+.closed {
+  @extend .valve;
+  background-color: rgb(160, 136, 0) !important;
+  box-shadow: inset 0px 0px 3px rgba(0,0,0,1);
+}
+
+.settings {
+  width: 75%;
+  position: fixed;
+  height: 100%;
+  padding-bottom: 5vh;
+  bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.note-active {
+    &::before {
+        position: absolute;
+        margin-top: -130%;
+        margin-left: 110%;
+        font-size: 0.7vw;
+        z-index: 3;
+    }
+    box-shadow: 0 0 2px $main-color;
+    border: 2px solid $main-color !important;
+}
+
+.note-tonic {
+    &::before {
+        content: "I";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $tonic-color !important;
+    filter: drop-shadow(0 0 1px $tonic-color);
+}
+
+.note-second {
+    &::before {
+        content: "II";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $second-color !important;
+    filter: drop-shadow(0 0 1px $second-color);
+}
+.note-third {
+    &::before {
+        content: "III";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $third-color !important;
+    filter: drop-shadow(0 0 1px $third-color);
+}
+.note-fourth {
+    &::before {
+        content: "IV";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $fourth-color !important;
+    filter: drop-shadow(0 0 1px $fourth-color);
+}
+
+.note-fifth {
+    &::before {
+        content: "V";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $fifth-color !important;
+    filter: drop-shadow(0 0 1px $fifth-color);
+}
+
+.note-sixth {
+    &::before {
+        content: "VI";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $sixth-color !important;
+    filter: drop-shadow(0 0 1px $sixth-color);
+}
+.note-seventh {
+    &::before {
+        content: "VII";
+    }
+    @extend .note-active;
+    border-bottom: 4px solid $seventh-color !important;
+    filter: drop-shadow(0 0 1px $seventh-color);
+}
+
+.note-addition {
+    @extend .note-active;
+    border-bottom: 4px solid $addition-color !important;
+    filter: drop-shadow(0 0 1px $addition-color);
+}

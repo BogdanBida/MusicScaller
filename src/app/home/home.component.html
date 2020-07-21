@@ -1,0 +1,60 @@
+<h1>MUSIC SCALLER</h1>
+<nav class="circle">
+  <button routerLink="/tuner" class="disabled">
+    <img src="../../assets/icons/tuner.png" alt="">
+    <span>Tuner</span>
+  </button>
+  <div class="hr"></div>
+  <button routerLink="/about">
+    <img src="../../assets/icons/about.png" alt="">
+    <span>About</span>
+  </button>
+  <div class="hr"></div>
+  <button routerLink="/stringed">
+    <img src="../../assets/icons/stringed.png" alt="">
+    <span>Stringed</span>
+  </button>
+  <div class="hr"></div>
+  <button routerLink="/piano">
+    <img src="../../assets/icons/piano.png" alt="">
+    <span>Keyboard</span>
+  </button>
+  <div class="hr"></div>
+  <button routerLink="/winds" class="">
+    <img src="../../assets/icons/winds.png" alt="">
+    <span>Wind</span>
+  </button>
+  <div class="hr"></div>
+  <div class="hole"></div>
+</nav>
+
+<div (click)="showAdditionBar = true" *ngIf="!showAdditionBar" class="sidebar-addition-btn">
+  <img src="../../assets/icons/addition.png" alt="">
+</div>
+
+<section class="addition-bar" *ngIf="showAdditionBar">
+  <div (click)="showAdditionBar = false" class="sidebar-addition-btn-close">
+    <span>X</span>
+  </div>
+  <button routerLink="/chord-finder" class="">
+    <img src="../../assets/icons/chord.png" alt="">
+    <span>Chord finder</span>
+  </button>
+  <button routerLink="/analyzer" class="disabled">
+    <img src="../../assets/icons/analyzer.png" alt="">
+    <span>Analyzer</span>
+  </button>
+  <button routerLink="/kalimba" class="">
+    <img src="../../assets/icons/kalimba.png" alt="">
+    <span>Kalimba</span>
+  </button>
+  <button routerLink="/accordion" class="disabled">
+    <img src="../../assets/icons/accordion.png" alt="">
+    <span>Accodrion</span>
+  </button>
+
+</section>
+
+<footer>
+  <h3>Created by Bogdan Bida</h3>
+</footer>

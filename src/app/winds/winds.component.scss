@@ -1,0 +1,107 @@
+@import "../../colors.scss";
+.main-section {
+  width: 75vw;
+  padding-top: calc(5vh + 8px);
+  height: 90vh;
+  .msg {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 3vw;
+    letter-spacing: 0.5vw;
+    font-weight: bold;
+    color: mix($main-color,#40f040);
+    span {
+      color: white;
+      margin-left: 5vw;
+    }
+    animation: msgAnim 1.8s ease-in-out none infinite alternate;
+    position: relative;
+  }
+}
+
+@keyframes msgAnim {
+  from { right: 0;}
+  to { right: 1vw; opacity: 0.8;}
+}
+
+button {
+  border: none;
+  background-color: initial;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    color: #dde;
+    transform: scale(1.15);
+    filter: drop-shadow(0px 0px 48px $main-color);
+  }
+}
+
+.sidebar {
+  overflow-x: hidden;
+  overflow-y: auto;
+  .disabled {
+      pointer-events: none;
+      filter: brightness(0.55);
+      &::before {
+        position: absolute;
+        top: 1vh;
+        content: "in development";
+        font-size: 1.5vh;
+        z-index: 3;
+        color: white;
+      }
+  }
+  padding-top: 8px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 10vw;
+  min-width: 108px;
+  max-width: 256px;
+  background-color: #282530;
+  height: 100vh;
+  box-sizing: border-box;
+  box-shadow: -1px 1px 5px black;
+  opacity: 0.8;
+  button {
+    display: flex;
+    position: relative;
+    background-color: inherit;
+    border: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 18vh;
+    border-top: 1px solid #050505;
+    border-bottom: 1px solid #151515;
+    transition: 0.3s, border 0s;
+    z-index: 2;
+    img {
+      height: calc(18vh * 0.4);
+      margin-bottom: 4px;
+    }
+    span {
+      z-index: 4;
+    }
+    &:hover {
+      img {
+        z-index: 4;
+      }
+      z-index: 3;
+      transform: scale(1);
+      margin-left: -8px;
+      box-sizing: border-box;
+      border-right: 2px solid $main-color;
+    }
+  }
+}
+

@@ -1,1 +1,169 @@
-/* You can add global styles to this file, and also import other style files */
+@import "colors.scss";
+
+body {
+  margin: 0;
+  background: $background;
+  height: 100vh;
+  font-family: Verdana;
+  overflow-y: hidden;
+  white-space: nowrap;
+  color: white;
+  min-width: 360px;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex {
+  display: flex;
+}
+
+button {
+  cursor: pointer;
+  border: 0;
+}
+
+.backlink {
+  text-decoration: none;
+  color: #b3b3b3;
+  position: absolute;
+  top: 4px;
+  left: 8px;
+  z-index: 10;
+  border-bottom: 2px solid $main-color;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.backlink:hover {
+  letter-spacing: 0.1em;
+  padding-left: 2px;
+}
+
+.select-container {
+  height: 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  label {
+    margin: 8px;
+    font-size: 24px;
+  }
+  select {
+    height: 100%;
+    width: 10vw;
+    font-size: 15px;
+    text-align: center;
+    border: 0;
+    background-color: #282530;
+    color: white;
+  }
+  button {
+    height: 100%;
+    border: 0;
+    margin: 2px;
+    box-sizing: border-box;
+    background-color: #70d7ff;
+    box-shadow: 0 1px 3px black;
+    &:active {
+      box-shadow: none;
+      filter: brightness(0.9);
+    }
+  }
+}
+
+hr {
+  width: 95%;
+  margin-left: 2.5%;
+}
+
+@media screen and (max-width: 800px) {
+  .select-container {
+    label {
+      font-size: 18px !important;
+    }
+    button {
+      width: 100%;
+      padding: 2px;
+      min-height: 24px;
+    }
+    select {
+      font-size: 12px !important;
+      width: 100%;
+      align-items: stretch;
+      min-height: 24px;
+      margin: 4px 0;
+    }
+    flex-direction: column;
+  }
+}
+
+.no-support-portrait {
+  display: none;
+  visibility: hidden;
+  width: 0.1px;
+  height: 0.1px;
+}
+
+@media screen and (orientation: portrait) {
+  .circle,
+  h1,
+  footer {
+    display: none;
+  }
+  .no-support-portrait {
+    img {
+      width: 33.33%;
+      margin: 4px;
+    }
+    p {
+      text-align: center;
+    }
+    .priority {
+      color: #ff5e5e;
+      font-size: 6vw;
+    }
+    color: #5eff66;
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    visibility: visible;
+    height: 100vh;
+    width: 100vw;
+    box-sizing: border-box;
+    z-index: 999;
+    background: $background;
+    padding: 5%;
+    font-size: 5.5vw;
+  }
+}
+
+@keyframes indev {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0.6;
+  }
+}
+.indevelopment {
+    animation-name: indev;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+  font-size: 14px;
+  position: fixed;
+  color: red;
+  top: 8px;
+  left: 45vw;
+  padding: 4px;
+  background-color: #404040;
+  z-index: 20;
+}

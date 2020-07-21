@@ -1,0 +1,48 @@
+<section class="col" class="harm-wrapper">
+  <div class="harm-container">
+    <div class="left-mark"><span>Out</span>
+      <div></div><span>In</span>
+    </div>
+    <div class="harm">
+      <div class="hole" *ngFor="let hole of holes; let id = index">
+        <div class="position">{{id+1}}</div>
+        <div class="note" *ngFor="let breath of [0,1]" (click)="play(hole[breath])"
+        [ngClass]="{'note-active': inTonality(hole[breath]) != 0,
+        'note-addition': inTonality(hole[breath]) == 12,
+        'note-seventh' : inTonality(hole[breath]) == 7,
+        'note-sixth' : inTonality(hole[breath]) == 6,
+        'note-fifth' : inTonality(hole[breath]) == 5,
+        'note-fourth': inTonality(hole[breath]) == 4,
+        'note-third': inTonality(hole[breath]) == 3,
+        'note-second': inTonality(hole[breath]) == 2,
+        'note-tonic' : inTonality(hole[breath]) == 1}">
+          {{NOTES[hole[breath]%12]}}</div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="settings">
+  <div class="select-container">
+    <label for="selectTonic">Tonic</label>
+    <select name="selectTonic" [(ngModel)]="selectTonic">
+      <option [value]="0" selected>A</option>
+      <option [value]="1">A#</option>
+      <option [value]="2">B</option>
+      <option [value]="3">C</option>
+      <option [value]="4">C#</option>
+      <option [value]="5">D</option>
+      <option [value]="6">D#</option>
+      <option [value]="7">E</option>
+      <option [value]="8">F</option>
+      <option [value]="9">F#</option>
+      <option [value]="10">G</option>
+      <option [value]="11">G#</option>
+    </select>
+  </div>
+  <div class="select-container">
+    <label for="selectScale">Scale</label>
+    <select name="selectScale" [(ngModel)]="selectScale">
+      <option *ngFor="let scale of SCALES | keyvalue" [value]="scale.key">{{scale.key}}</option>
+    </select>
+  </div>
+</section>

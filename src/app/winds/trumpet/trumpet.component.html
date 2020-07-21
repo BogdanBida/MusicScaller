@@ -1,0 +1,48 @@
+<section class="main-section">
+  <div class="col">
+    <div class="valves-row" *ngFor="let valves of valvesMap">
+      <div class="valve" *ngFor="let valve of valves" [ngClass]="{'closed':valve==1}"></div>
+    </div>
+    <div class="valves-row"> </div> 
+  </div>
+  <div class="col" *ngFor="let col of getNoteColumns(); let colId = index">
+      <div *ngFor="let note of col; let id = index" class="note" (click)="play(note)"
+      [ngClass]="{'note-active': inTonality(note) != 0,
+      'note-addition': inTonality(note) == 12,
+      'note-seventh' : inTonality(note) == 7,
+      'note-sixth' : inTonality(note) == 6,
+      'note-fifth' : inTonality(note) == 5,
+      'note-fourth': inTonality(note) == 4,
+      'note-third': inTonality(note) == 3,
+      'note-second': inTonality(note) == 2,
+      'note-tonic' : inTonality(note) == 1}">
+        {{NOTES[note % 12]}}{{getOctave(note)}}
+      </div>
+      <span>{{colId+1}}</span>
+  </div>
+</section>
+<section class="settings">
+  <div class="select-container">
+    <label for="selectTonic">Tonic</label>
+    <select name="selectTonic" [(ngModel)]="selectTonic">
+      <option [value]="0" selected>A</option>
+      <option [value]="1">A#</option>
+      <option [value]="2">B</option>
+      <option [value]="3">C</option>
+      <option [value]="4">C#</option>
+      <option [value]="5">D</option>
+      <option [value]="6">D#</option>
+      <option [value]="7">E</option>
+      <option [value]="8">F</option>
+      <option [value]="9">F#</option>
+      <option [value]="10">G</option>
+      <option [value]="11">G#</option>
+    </select>
+  </div>
+  <div class="select-container">
+    <label for="selectScale">Scale</label>
+    <select name="selectScale" [(ngModel)]="selectScale">
+      <option *ngFor="let scale of SCALES | keyvalue" [value]="scale.key">{{scale.key}}</option>
+    </select>
+  </div>
+</section>
