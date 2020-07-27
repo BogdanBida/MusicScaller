@@ -23,14 +23,14 @@ footer {
   from {
     min-width: 0;
     min-height: 0;
-    height: 20vh;
-    width: 20vh;
-    top: calc(50% - 10vh);
-    left: calc(50% - 10vh);
+    height: 20vmin;
+    width: 20vmin;
+    top: calc(50% - 10vmin);
+    left: calc(50% - 10vmin);
   }
   to {
-    height: 66.66vh;
-    width: 66.66vh;
+    height: 66.66vmin;
+    width: 66.66vmin;
   }
 }
 
@@ -39,11 +39,11 @@ footer {
   animation-duration: 0.5s;
   margin: 0 auto;
   position: absolute;
-  top: calc(52.5% - 33.33vh);
-  left: calc(50% - 33.33vh);
+  top: calc(52.5% - 33.33vmin);
+  left: calc(50% - 33.33vmin);
   box-shadow: 0px 0px 64px 1px $main-color, inset 0px 0px 32px 4px $main-color;
-  height: 66.66vh;
-  width: 66.66vh;
+  height: 66.66vmin;
+  width: 66.66vmin;
   min-height: 256px;
   min-width: 256px;
   opacity: 0.8;
@@ -78,7 +78,7 @@ button {
   position: absolute;
   text-align: center;
 
-  font-size: 3vh;
+  font-size: 3vmin;
   border-radius: 50%;
   img {
     height: 40%;
@@ -96,11 +96,11 @@ button {
 
 .hole {
   position: absolute;
-  width: 24vh;
-  height: 24vh;
+  width: 24vmin;
+  height: 24vmin;
   border-radius: 50%;
-  margin-left: calc(50% - 12vh);
-  margin-top: calc(50% - 12vh);
+  margin-left: calc(50% - 12vmin);
+  margin-top: calc(50% - 12vmin);
   box-shadow: 0 0 2px 1px $main-color, inset 0 0 4px 1px $main-color;
 }
 
@@ -109,9 +109,9 @@ button {
   position: absolute;
   text-align: center;
   width: 2px;
-  height: calc((66.66vh - 24vh) / 2.2);
+  height: calc((66.66vmin - 24vmin) / 2.2);
   margin-left: -1px;
-  margin-top: calc((66.66vh - 24vh) / -4.4);
+  margin-top: calc((66.66vmin - 24vmin) / -4.4);
   box-shadow: 0px 0px 32px 4px $main-color, 0px 0px 6px 1px $main-color;
 }
 

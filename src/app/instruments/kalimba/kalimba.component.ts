@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '../models/Data';
-import { AudioService } from '../services/audio.service';
+import { Data } from '../../models/Data';
+import { AudioService } from '../../services/audio.service';
 
 class Tongue {
   note: number;

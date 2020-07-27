@@ -13,6 +13,8 @@
 
 .red {
     color: #e94242;
+    width: 100%;
+    text-align: center;
 }
 
 .header-text {
@@ -42,8 +44,9 @@ section {
     display: flex;
     justify-content: center;
     flex-direction: column;
+    flex-wrap: wrap;
+    word-wrap: break-word;
     h2 {
-        width: 90px;
         padding: 4px;
         font-size: medium;
         border-top: 2px solid rgb(218, 53, 53);

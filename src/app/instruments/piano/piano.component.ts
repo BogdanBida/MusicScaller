@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Note } from '../models/Note';
-import { Data } from '../models/Data';
-import { AudioService } from '../services/audio.service';
+import { Note } from '../../models/Note';
+import { Data } from '../../models/Data';
+import { AudioService } from '../../services/audio.service';
 
 @Component({
   selector: 'app-piano',
@@ -18,7 +18,7 @@ export class PianoComponent {
   public readonly SCALES = Data.SCALES;
 
   constructor(private audioService: AudioService) { }
-
+  
   public getNotes() {
     let notes : Note[] = [];
     for (let i = 0; i < this.countOfKeys; i++) {

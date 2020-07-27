@@ -1,22 +1,30 @@
-@import "../../colors.scss";
+@import "../../../colors.scss";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  section {
+    flex: 1 1;
+  }
+  height: 100%;
+}
 
 .fret {
   margin-top: 24px;
   border-top: 2px solid #404040;
   border-bottom: 2px solid $main-color;
   box-sizing: border-box;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  // justify-content: center;
   padding-bottom: 8px;
-  height: 50vh;
   overflow-y: auto;
+  overflow-x: auto;
 }
 
 .string-row {
   display: flex;
   border-left: 2px solid $main-color;
+  min-width: 800px;
   align-items: center;
   margin-top: 0.25vh;
   &:first-of-type {
@@ -58,29 +66,6 @@
   opacity: 0.5;
   color: white;
   z-index: 3;
-}
-
-.string-row:first-child {
-  .note:nth-of-type(5):after {
-    content: "3";
-    @extend .mark;
-  }
-  .note:nth-of-type(7):after {
-    content: "5";
-    @extend .mark;
-  }
-  .note:nth-of-type(9):after {
-    content: "7";
-    @extend .mark;
-  }
-  .note:nth-of-type(11):after {
-    content: "9";
-    @extend .mark;
-  }
-  .note:nth-of-type(14):after {
-    content: "12";
-    @extend .mark;
-  }
 }
 
 .string-pitcher {
@@ -152,14 +137,14 @@
 
 .menu {
   display: flex;
-  width: 100%;
-  height: 50vh;
+  flex-wrap: wrap;
   justify-content: space-around;
-  align-items: flex-start;
-  padding: 5vh 0;
+  align-items: baseline;
+  width: 100%;
 }
 
 .select-container {
+  margin: 8px;
   select:first-of-type {
     min-width: 128px;
   }

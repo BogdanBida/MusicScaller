@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { PianoComponent } from './piano/piano.component';
-import { StringedComponent } from './stringed/stringed.component';
+import { PianoComponent } from './instruments/piano/piano.component';
+import { StringedComponent } from './instruments/stringed/stringed.component';
 import { TunerComponent } from './tuner/tuner.component';
 import { AboutComponent } from './about/about.component';
 import { ChordFinderComponent } from './chord-finder/chord-finder.component';
 import { AudioAnalyzerComponent } from './audio-analyzer/audio-analyzer.component';
-import { KalimbaComponent } from './kalimba/kalimba.component';
-import { WindsComponent } from './winds/winds.component';
-import { BlockFluteComponent } from './winds/block-flute/block-flute.component';
-import { LipsHarmonicaComponent } from './winds/lips-harmonica/lips-harmonica.component';
-import { TrumpetComponent } from './winds/trumpet/trumpet.component';
-import { SaxophoneComponent } from './winds/saxophone/saxophone.component';
+import { KalimbaComponent } from './instruments/kalimba/kalimba.component';
+import { WindsComponent } from './instruments/winds/winds.component';
+import { BlockFluteComponent } from './instruments/winds/block-flute/block-flute.component';
+import { LipsHarmonicaComponent } from './instruments/winds/lips-harmonica/lips-harmonica.component';
+import { TrumpetComponent } from './instruments/winds/trumpet/trumpet.component';
+import { SaxophoneComponent } from './instruments/winds/saxophone/saxophone.component';
 
 
 const routes: Routes = [

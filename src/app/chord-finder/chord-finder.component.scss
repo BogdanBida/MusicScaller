@@ -1,26 +1,30 @@
 @import '../../colors.scss';
 
-h1 {
-    width: 100%;
-    height: 35vh;
-    box-sizing: border-box;
+.wrapper {
     display: flex;
-    margin: 0;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.chord-name {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 96px;
     font-size: 8vw;
-    justify-content: center;
-    align-items: center;
+    overflow-x: auto;
+    overflow-y: hidden;
+    text-align: center;
     .message {
         font-size: 6vh;
     }
 }
-
 
 .noteline {
     display: flex;
     justify-content: space-around;
     align-items: center;
     box-sizing: border-box;
-    height: 7vh;
     width: 50%;
     margin: 0;
     margin-left: 25%;
@@ -32,7 +36,6 @@ h1 {
 }
 
 .piano {
-    position: fixed;
     display: flex;
     z-index: 10;
     align-items: stretch;
@@ -41,7 +44,7 @@ h1 {
     bottom: 4vh;
     width: 100%;
     height: 33.33vh;
-    min-height: 32px;
+    min-height: 64px;
     .note {
         width: calc((100% / 36) - 2px);
         margin-left: 1px;
@@ -88,18 +91,19 @@ h1 {
     }
 }
 .btn-container {
-    width: 100%;
+    width: 75%;
+    margin-left: calc(25%/2);
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .btn {
-    width: 12%;
-    min-height: 24px;
-    margin: 0 2px;
-    margin-top: 1vh;
-    height: 5vh;
+    flex: 1 1 128px;
+    min-height: 32px;
+    max-width: 200px;
+    margin: 2px;
     font-size: 3vh;
     letter-spacing: 0.33em;
     text-align: center;
@@ -137,12 +141,13 @@ h1 {
 }
 
 .select-chord {
-    position: fixed;
+    position: absolute;
     display: flex;
     text-align: right;
     flex-direction: column;
     top: 8px;
     right: 8px;
+    min-width: 128px;
     select {
         margin: 4px 0;
         &:disabled {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Data } from '../models/Data';
-import { StringRow } from '../models/StringRow';
+import { Data } from '../../models/Data';
+import { StringRow } from '../../models/StringRow';
 
 @Component({
   selector: 'app-stringed',

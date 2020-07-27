@@ -1,4 +1,4 @@
-@import '../../colors.scss';
+@import '../../../colors.scss';
 
 .wrapper {
     display: flex;
@@ -6,7 +6,7 @@
     justify-content: center;
 }
 
-.settings, .left {
+.settings {
     width: 25%;
     height: 90vh;
 }
@@ -19,7 +19,8 @@
 }
 
 .kalimba {
-    width: 50%;
+    width: calc(75% - 64px);
+    margin-left: 64px;
     height: 90vh;
     background-color: #202023;
     display: flex;

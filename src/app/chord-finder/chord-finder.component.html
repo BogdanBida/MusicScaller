@@ -1,38 +1,41 @@
 <a class="backlink" routerLink="/home">BACK</a>
-<h1 class="chord-name">
-  <div *ngIf="countActiveNote>=2">
-    {{findedChord}}
-  </div>
-  <div *ngIf="countActiveNote<2" class="message">
-    Choise > 1 note and press scan or play
-  </div>
-</h1>
-<h2 class="noteline">
-  <span *ngFor="let note of getSelectedNotes()">{{note}}</span>
-</h2>
-<div class="btn-container">
-  <button class="btn-scan" (click)="analyze()">
-    SCAN
-  </button>
-  <button class="btn-play" (click)="play()" [ngClass]="{'disable-btn':countActiveNote<2}">
-    PLAY
-  </button>
-  <button class="btn-clear" (click)="clear()">
-    CLEAR
-  </button>
-  <div class="select-chord">
-    <label for="select-chord">Press on tonic<br>and select chord</label>
-    <select id="select-chord" [disabled]="countActiveNote < 1" [(ngModel)]="selectedChord">
-      <option *ngFor="let chord of chordsMap | keyvalue" [value]="chord.key">{{chord.key}}</option>
-    </select>
-    <button [disabled]="countActiveNote < 1" (click)="setChord()">SHOW</button>
-  </div>
+<div class="select-chord">
+  <label for="select-chord">Press on tonic<br>and select chord</label>
+  <select id="select-chord" [disabled]="countActiveNote < 1" [(ngModel)]="selectedChord">
+    <option *ngFor="let chord of chordsMap | keyvalue" [value]="chord.key">{{chord.key}}</option>
+  </select>
+  <button [disabled]="countActiveNote < 1" (click)="setChord()">SHOW</button>
 </div>
-<section class="piano">
-  <div *ngFor="let note of notes; let id = index" class="note"
-    [ngClass]="{'black':isBlack(id), 'marked':markedNotes[id], 'tonic':rootId == id}" (click)="toogleNote(id)"
-    [style.width]="'width: calc((100% / ' + notesN + ') - 2px)'">
-    <div class="color-layer"></div>
-    <div class="note-name">{{NotesName[id % 12]}}</div>
+<div class="wrapper">
+  <div class="chord-name">
+    <div *ngIf="countActiveNote<2" class="message">
+      Choise > 1 note<br>
+      and press scan or play
+    </div>
+    <div *ngIf="countActiveNote>=2">
+      {{findedChord}}
+    </div>
   </div>
-</section>
+  <div class="noteline">
+    <span *ngFor="let note of getSelectedNotes()">{{note}}</span>
+  </div>
+  <div class="btn-container">
+    <button class="btn-scan" (click)="analyze()">
+      SCAN
+    </button>
+    <button class="btn-play" (click)="play()" [ngClass]="{'disable-btn':countActiveNote<2}">
+      PLAY
+    </button>
+    <button class="btn-clear" (click)="clear()">
+      CLEAR
+    </button>
+  </div>
+  <section class="piano">
+    <div *ngFor="let note of notes; let id = index" class="note"
+      [ngClass]="{'black':isBlack(id), 'marked':markedNotes[id], 'tonic':rootId == id}" (click)="toogleNote(id)"
+      [style.width]="'width: calc((100% / ' + notesN + ') - 2px)'">
+      <div class="color-layer"></div>
+      <div class="note-name">{{NotesName[id % 12]}}</div>
+    </div>
+  </section>
+</div>
