@@ -1,5 +1,12 @@
 @import "../../../../colors.scss";
 
+.block-flut-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid red;
+}
+
 h2 {
     width: 100%;
     text-align: center;

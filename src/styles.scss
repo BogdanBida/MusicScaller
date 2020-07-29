@@ -52,7 +52,7 @@ button {
     font-size: 24px;
   }
   select {
-    height: 100%;
+    height: 32px;
     width: 10vw;
     font-size: 15px;
     text-align: center;
@@ -61,7 +61,7 @@ button {
     color: white;
   }
   button {
-    height: 100%;
+    height: 32px;
     border: 0;
     margin: 2px;
     box-sizing: border-box;
@@ -79,7 +79,7 @@ hr {
   margin-left: 2.5%;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 720px) {
   .select-container {
     label {
       font-size: 18px !important;
@@ -87,14 +87,15 @@ hr {
     button {
       width: 100%;
       padding: 2px;
-      min-height: 24px;
     }
     select {
       font-size: 12px !important;
       width: 100%;
       align-items: stretch;
-      min-height: 24px;
       margin: 4px 0;
+    }
+    button, select {
+      min-height: 32px;
     }
     flex-direction: column;
   }

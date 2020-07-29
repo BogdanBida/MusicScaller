@@ -1,4 +1,4 @@
-<section class="col" class="harm-wrapper">
+<div class="harm-wrapper">
   <div class="harm-container">
     <div class="left-mark"><span>Out</span>
       <div></div><span>In</span>
@@ -20,11 +20,10 @@
       </div>
     </div>
   </div>
-</section>
-<section class="settings">
-  <div class="select-container">
-    <label for="selectTonic">Tonic</label>
-    <select name="selectTonic" [(ngModel)]="selectTonic">
+  <section class="settings">
+    <div class="select-container">
+      <label for="selectTonic">Tonic</label>
+      <select name="selectTonic" [(ngModel)]="selectTonic">
       <option [value]="0" selected>A</option>
       <option [value]="1">A#</option>
       <option [value]="2">B</option>
@@ -46,3 +45,4 @@
     </select>
   </div>
 </section>
+</div>

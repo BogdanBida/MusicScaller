@@ -2,24 +2,22 @@
 
 .settings {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .harm-wrapper {
     width: 75vw;
-    height: 70vh;
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
     align-items: center;
 }
 
 .harm-container {
     display: flex;
-    width: 70vw;
-    height: 94vh;
-    margin-top: 5vh;
-    min-height: 10vw;
-    max-height: 15vw;
+    width: 100%;
+    height: auto;
+    height: 15vw;
     justify-content: center;
     align-items: center;
     .left-mark {

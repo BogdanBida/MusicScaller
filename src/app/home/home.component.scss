@@ -221,6 +221,7 @@ button {
 }
 
 .sidebar-addition-btn {
+  position: absolute;
   animation-name: toleft;
   animation-timing-function: ease-in-out;
   animation-duration: 0.5s;
@@ -228,7 +229,6 @@ button {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
   right: 0;
   top: 33.33vh;
   width: 42px;
@@ -261,15 +261,15 @@ button {
 }
 
 .sidebar-addition-btn-close {
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
   left: calc(-10vh + 8px);
-  width: calc(3vh + 8px);
   top: 33.33%;
-  height: calc(3vh + 8px);
+  width: calc(5vmin + 8px);
+  height: calc(5vmin + 8px);
   padding: 4px;
   font-size: 2vh;
   box-sizing: border-box;
@@ -282,12 +282,30 @@ button {
     font-weight: bold;
   }
   &:hover {
-    height: calc(4vh + 8px);
-    top: calc(33.33% - 0.5vh);
+    background-color: #ffffff10;
   }
   &:active {
-    top: 33.33%;
-    height: calc(3vh + 8px);
-    transform: scale(0.98);
+    background-color: #ffffff30;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .addition-bar {
+    opacity: 1;
+    box-shadow: -6px 1px 12px #00000070, -3px 1px 6px #00000070;
+  }
+
+  .sidebar-addition-btn {
+    top: auto;
+    bottom: 25vh;
+  }
+
+  .sidebar-addition-btn-close {
+    top: auto;
+    bottom: 16px;
+    left: calc((-6vmin + 8px) * 2 - 16px);
+    right: auto;
+    width: calc(6vmin + 8px);
+    height: calc(6vmin + 8px);
   }
 }

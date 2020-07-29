@@ -81,7 +81,6 @@
   filter: drop-shadow(-10px 2px 5px black);
   &:hover {
     border-right: 2px solid #de1c02;
-    // border-left: 2px solid #de1c02;
     filter: drop-shadow(-10px 2px 5px black) drop-shadow(64px 0px 20px white);
   }
   cursor: grab;
@@ -137,20 +136,29 @@
 
 .menu {
   display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+.selects-wrapper {
+  display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: baseline;
-  width: 100%;
+  align-items: center;
 }
 
 .select-container {
   margin: 8px;
+  min-height: 40px;
   select:first-of-type {
     min-width: 128px;
   }
 }
 
 .string-controller {
+  width: 15vw;
+  min-width: 128px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -186,5 +194,14 @@
     &:active {
       transform: scale(0.95);
     }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .selects-wrapper {
+    flex-direction: column;
+  }
+  .select-container {
+    margin: 0;
   }
 }
