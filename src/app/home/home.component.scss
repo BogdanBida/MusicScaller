@@ -1,20 +1,25 @@
 @import "../../colors.scss";
 
+$radius: 66.66vmin;
+$radius: 75vmin;
+$inner_radius: $radius / 2.75;
+
 h1 {
   width: 100%;
   text-align: center;
   color: white;
   position: relative;
-  top: 16px;
+  margin: 0;
+  top: 5vh;
   letter-spacing: 2em;
   letter-spacing: 2vw;
   font-size: 4vh;
 }
 
 footer {
-  position: fixed;
+  position: absolute;
   bottom: 8px;
-  left: 16px;
+  left: 8px;
   font-size: 2vh;
   color: #ccd;
 }
@@ -29,25 +34,51 @@ footer {
     left: calc(50% - 10vmin);
   }
   to {
-    height: 66.66vmin;
-    width: 66.66vmin;
+    height: $radius;
+    width: $radius;
   }
 }
 
 .circle {
-  animation-name: anim;
-  animation-duration: 0.5s;
-  margin: 0 auto;
   position: absolute;
-  top: calc(52.5% - 33.33vmin);
-  left: calc(50% - 33.33vmin);
-  box-shadow: 0px 0px 64px 1px $main-color, inset 0px 0px 32px 4px $main-color;
-  height: 66.66vmin;
-  width: 66.66vmin;
+  height: $radius;
+  width: $radius;
+  $half_radius: $radius/2;
+  top: calc(52.5% - #{$radius}/2);
+  left: calc(50% - #{$radius}/2);
   min-height: 256px;
   min-width: 256px;
+  margin: 0 auto;
   opacity: 0.8;
   border-radius: 50%;
+  box-shadow: 0px 0px 64px 1px $main-color, inset 0px 0px 32px 4px $main-color;
+  animation-name: anim;
+  animation-duration: 0.5s;
+  button {
+    height: 33.33%;
+    width: 33.33%;
+    line-height: 40px;
+    margin-left: calc(-33.33% / 2);
+    margin-top: calc(-33.33% / 2);
+    /*  */
+    position: absolute;
+    text-align: center;
+  
+    font-size: 3vmin;
+    border-radius: 50%;
+    img {
+      height: 40%;
+      width: 40%;
+      position: absolute;
+      bottom: 38%;
+      box-sizing: border-box;
+    }
+  
+    span {
+      position: relative;
+      top: 22%;
+    }
+  }
 }
 
 button {
@@ -67,51 +98,24 @@ button {
   }
 }
 
-.circle button {
-  /*  */
-  height: 33.33%;
-  width: 33.33%;
-  line-height: 40px;
-  margin-left: calc(-33.33% / 2);
-  margin-top: calc(-33.33% / 2);
-  /*  */
+.inner-circle {
   position: absolute;
-  text-align: center;
-
-  font-size: 3vmin;
+  width: $inner-radius;
+  height: $inner-radius;
   border-radius: 50%;
-  img {
-    height: 40%;
-    width: 40%;
-    position: absolute;
-    bottom: 38%;
-    box-sizing: border-box;
-  }
-
-  span {
-    position: relative;
-    top: 22%;
-  }
-}
-
-.hole {
-  position: absolute;
-  width: 24vmin;
-  height: 24vmin;
-  border-radius: 50%;
-  margin-left: calc(50% - 12vmin);
-  margin-top: calc(50% - 12vmin);
+  margin-left: calc(50% - #{$inner_radius/2});
+  margin-top: calc(50% - #{$inner_radius/2});
   box-shadow: 0 0 2px 1px $main-color, inset 0 0 4px 1px $main-color;
 }
 
-.hr {
+.separator {
   box-sizing: border-box;
   position: absolute;
   text-align: center;
   width: 2px;
-  height: calc((66.66vmin - 24vmin) / 2.2);
+  height: calc((#{$radius - $inner_radius}) / 2.2);
   margin-left: -1px;
-  margin-top: calc((66.66vmin - 24vmin) / -4.4);
+  margin-top: calc((#{$radius - $inner_radius}) / -4.4);
   box-shadow: 0px 0px 32px 4px $main-color, 0px 0px 6px 1px $main-color;
 }
 
@@ -125,187 +129,5 @@ button {
     font-size: 1.5vh;
     z-index: 3;
     color: white;
-  }
-}
-
-@keyframes addition-bar-anim {
-  from {
-    width: 0%;
-    opacity: 0;
-    overflow-x: hidden;
-  }
-  25% {
-    opacity: 0;
-  }
-  to {
-    overflow-x: auto;
-  }
-}
-
-.addition-bar {
-  .disabled {
-    &::before {
-      top: 1vh;
-    }
-  }
-  animation-name: addition-bar-anim;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-in-out;
-  padding-top: 8px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 10vw;
-  min-width: 108px;
-  max-width: 256px;
-  background-color: #282530;
-  height: 100vh;
-  box-sizing: border-box;
-  box-shadow: -1px 1px 5px black;
-  opacity: 0.8;
-  button {
-    display: flex;
-    position: relative;
-    background-color: inherit;
-    border: 0;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 18vh;
-    border-top: 1px solid #050505;
-    border-bottom: 1px solid #151515;
-    transition: 0.3s, border 0s;
-    z-index: 2;
-    img {
-      height: calc(18vh * 0.4);
-      margin-bottom: 4px;
-    }
-    span {
-      z-index: 4;
-    }
-    &:hover {
-      img {
-        z-index: 4;
-      }
-      z-index: 3;
-      transform: scale(1);
-      margin-left: -8px;
-      box-sizing: border-box;
-      border-left: 2px solid $main-color;
-    }
-  }
-}
-
-@keyframes toleft {
-  from {
-    transform: scale(0);
-    opacity: 0;
-  }
-  80% {
-    border-radius: 100px;
-  }
-}
-
-@keyframes open-btn-active {
-  from {
-    transition: rotate(0deg);
-  }
-  50% {
-    opacity: 1;
-  }
-  to {
-    transform: rotate(180deg);
-    opacity: 0;
-  }
-}
-
-.sidebar-addition-btn {
-  position: absolute;
-  animation-name: toleft;
-  animation-timing-function: ease-in-out;
-  animation-duration: 0.5s;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  right: 0;
-  top: 33.33vh;
-  width: 42px;
-  height: 42px;
-  font-size: 2vh;
-  border: 2px solid #282530;
-  border-top-left-radius: 50px;
-  border-bottom-left-radius: 50px;
-  transition: 0.3s, transform 0s width 0.2s height 0.2s;
-  cursor: pointer;
-  box-shadow: 0 1px 5px 1px $main-color;
-  z-index: 100;
-  img {
-    height: 75%;
-  }
-  &:hover {
-    width: 50px;
-  }
-  &:active {
-    animation-name: open-btn-active;
-    animation-duration: 0.2s;
-    animation-timing-function: ease-in-out;
-    animation-fill-mode: forwards;
-    transform: scale(0.98);
-    height: 42px;
-    right: 4px;
-    width: 42px;
-    border-radius: 50px;
-  }
-}
-
-.sidebar-addition-btn-close {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  left: calc(-10vh + 8px);
-  top: 33.33%;
-  width: calc(5vmin + 8px);
-  height: calc(5vmin + 8px);
-  padding: 4px;
-  font-size: 2vh;
-  box-sizing: border-box;
-  border: 2px solid #282530;
-  border-radius: 10vh;
-  transition: 0.1s, transform 0s;
-  cursor: pointer;
-  box-shadow: 0 1px 5px 1px $main-color;
-  span {
-    font-weight: bold;
-  }
-  &:hover {
-    background-color: #ffffff10;
-  }
-  &:active {
-    background-color: #ffffff30;
-  }
-}
-
-@media screen and (max-width: 720px) {
-  .addition-bar {
-    opacity: 1;
-    box-shadow: -6px 1px 12px #00000070, -3px 1px 6px #00000070;
-  }
-
-  .sidebar-addition-btn {
-    top: auto;
-    bottom: 25vh;
-  }
-
-  .sidebar-addition-btn-close {
-    top: auto;
-    bottom: 16px;
-    left: calc((-6vmin + 8px) * 2 - 16px);
-    right: auto;
-    width: calc(6vmin + 8px);
-    height: calc(6vmin + 8px);
   }
 }

@@ -10,7 +10,7 @@
 }
 
 .fret {
-  margin-top: 24px;
+  margin-top: 34px;
   border-top: 2px solid #404040;
   border-bottom: 2px solid $main-color;
   box-sizing: border-box;
@@ -24,9 +24,9 @@
 .string-row {
   display: flex;
   border-left: 2px solid $main-color;
-  min-width: 800px;
+  min-width: 900px;
   align-items: center;
-  margin-top: 0.25vh;
+  margin-top: 4px;
   &:first-of-type {
     margin-top: 1vh;
   }
@@ -35,12 +35,21 @@
 .note {
   padding: 4px;
   width: calc(100% / 16);
-  text-align: center;
   color: white;
   border-left: 1px solid #b0b0b0;
   border-right: 1px solid #b0b0b0;
   font-size: 2.8vh;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.note:not(.note-disabled) .notename-wrapper {
+  background-color: rgb(20, 20, 20);
+  border-radius: 999px;
+  width: 2em;
+  padding: 2px;
 }
 
 .note:nth-of-type(2),
@@ -109,25 +118,44 @@
 }
 
 .note-tonic {
-  color: rgb(0, 195, 255);
+  color: $tonic-color;
   border-bottom: 2px solid $main-color;
   border-top: 2px solid $main-color;
+  filter: drop-shadow(0 0 12px #aaffaa70)
 }
 
-.note-third {
-  color: rgb(36, 255, 200);
+.note-min-second {
+  color: $minSecond-color;
 }
-
-.note-penta {
-  color: rgb(255, 74, 74);
+.note-maj-second {
+  color: $majSecond-color;
 }
-
-.note-active {
-  color: white;
+.note-min-third {
+  color: $minThird-color;
 }
-
-.note-addition {
-  color: rgb(121, 80, 255);
+.note-maj-third {
+  color: $majThird-color;
+}
+.note-fourth {
+  color: $perfectFourth-color;
+}
+.note-tritone {
+  color: $tritone-color;
+}
+.note-fifth {
+  color: $perfectFifth-color;
+}
+.note-min-sixth {
+  color: $minSixth-color;
+}
+.note-maj-sixth {
+  color: $majSixth-color;
+}
+.note-min-seventh {
+  color: $minSeventh-color;
+}
+.note-maj-seventh {
+  color: $majSeventh-color;
 }
 
 .note-disabled {

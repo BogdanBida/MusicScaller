@@ -15,7 +15,7 @@ export class ChordFinderComponent implements OnInit {
 
   public notes: Note[] = []
   public markedNotes: boolean[] = [];
-  public notesN: number = 36;
+  public notesN: number = 24;
   public NotesName = Data.NOTES;
   public findedChord = "";
   public countActiveNote: number = 0;

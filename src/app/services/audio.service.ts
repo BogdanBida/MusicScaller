@@ -5,6 +5,7 @@ import { Injectable } from '@angular/core';
 })
 export class AudioService {
   private audioCtx = new AudioContext();
+  
   constructor() {
   }
 
@@ -27,29 +28,13 @@ export class AudioService {
       gain.connect(osc.detune);
       vibration.start(0);
     }
+
     osc.frequency.value = 440 * Math.pow(2, (id) / 12) // formula
     osc.connect(this.audioCtx.destination);
-    // osc -> gain -> output
-    // osc.connect(adsr);
-    // adsr.connect(this.audioCtx.destination);
-    const t0 = this.audioCtx.currentTime;
-    osc.start(t0);
-    // vol:0
-    // adsr.gain.setValueAtTime(0, t0);
-    // attack
-    const t1 = t0 + adsrOption[0];
-    // adsr.gain.linearRampToValueAtTime(1, t1);
-    // decay
-    const t2 = adsrOption[1];
-    // adsr.gain.setTargetAtTime(adsrOption[2], t1, t2);
 
     await new Promise(resolve => {
       setTimeout(() => {
-        // const t = this.audioCtx.currentTime;
-        // adsr.gain.cancelScheduledValues(t);
-        // adsr.gain.setValueAtTime(adsr.gain.value, t);
-        // adsr.gain.setTargetAtTime(0, t, adsrOption[3]);
-        let stop
+        let stop;
         stop = setInterval(() => {
           if (adsr.gain.value < 0.01 || true) {
             osc.stop();

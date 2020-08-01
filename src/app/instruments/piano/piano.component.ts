@@ -15,7 +15,7 @@ export class PianoComponent {
   public selectScale = 'Major';
   public selectTonic = 3;
   public countOfKeys = 48;
-  public readonly SCALES = Data.SCALES;
+  public readonly SCALES = Data.NEW_SCALES;
 
   constructor(private audioService: AudioService) { }
   
@@ -46,18 +46,9 @@ export class PianoComponent {
     return 1 + 'px';
   }
 
-  public isActiveNote(id: number) {
-    let t = this.getStageId(id);
-    if (t > 7 && t != 12) return true;
-    return false;
-  }
-
-  public getStageId(id: number) {
-    return this.getScaleMap((12 - (this.selectTonic - id)) % 12);
-  }
-
-  private getScaleMap(id: number) {
-    return this.SCALES[this.selectScale][id];
+  public getStageId(noteId: number) {
+    let stage = 1 + (noteId + 12 - this.selectTonic) % 12;
+    return this.SCALES[this.selectScale].includes(stage)? stage:0;
   }
 
   public play(id: number) {

@@ -17,7 +17,7 @@
 
 .kalimba {
     position: relative;
-    width: calc(75% - 64px);
+    width: calc(75% - 128px);
     height: 90vmin;
     margin-left: 64px;
     display: flex;
@@ -57,7 +57,7 @@
         background-color: gainsboro;
         box-shadow: -2px 5px 8px black;
         width: calc(100% / 17  - (100%/17/2));
-        font-size: calc((50vw*0.9) / 17 - 1.6vw);
+        font-size: 14px;
         padding-bottom: 1vh;
         margin: 0 calc(100%/17/4);
         margin-bottom: 8px;
@@ -77,10 +77,14 @@
 .mark {
     height: 15%;
     width: 100%;
-    font-size: 0.6vw;
     display: flex;
     justify-content: center;
     align-items: center;
+    &::before {
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        font-size: 10px;
+        color: #202020;
+    }
 }
 
 .note-tonic {
@@ -124,14 +128,7 @@
     background-color: $addition-color;
 }
 
-
-@media screen and (max-height: 380px){
-    .hole {
-        display: none;
-    }
-}
-
-@media screen and (max-width: 520px) {
+@media screen and (max-width: 720px) {
     .wrapper {
         flex-direction: column;
         justify-content: center;
@@ -144,7 +141,7 @@
         margin-top: 5vh;
     }
     .kalimba {
-        width: 75%;
+        width: 90%;
         background: transparent;
         box-shadow: none;
         margin: 0;

@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit{
 
   ngOnInit() {
     let items = document.querySelectorAll('.circle button');
-    let itemsHr = document.querySelectorAll('.circle .hr') ;
+    let itemsHr = document.querySelectorAll('.circle .separator') ;
     for (let i = 0, l = items.length; i < l; i++) {
       let t = 50;
       let r = 31;

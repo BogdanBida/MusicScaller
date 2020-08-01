@@ -1,0 +1,180 @@
+@import '../../../colors.scss';
+  
+.sidebar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-top: 8px;
+    width: 10vw;
+    min-width: 108px;
+    max-width: 256px;
+    height: 100vh;
+    background-color: #282530;
+    box-sizing: border-box;
+    box-shadow: -1px 1px 5px black;
+    opacity: 0.8;
+    animation: sidebar-anim 0.3s ease-in-out;
+    button {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: inherit;
+        border: 0;
+        width: 100%;
+        height: 18vh;
+        border-top: 1px solid #050505;
+        border-bottom: 1px solid #151515;
+        transition: 0.3s, border 0s;
+        z-index: 2;
+        img {
+            height: calc(18vh * 0.4);
+            margin-bottom: 4px;
+        }
+        span {
+            z-index: 4;
+            color: whitesmoke;
+        }
+        &:hover {
+            img {
+                z-index: 4;
+            }
+            z-index: 3;
+            margin-left: -8px;
+            box-sizing: border-box;
+            border-left: 2px solid $main-color;
+            color: #dde;
+            filter: drop-shadow(0px 0px 48px $main-color);
+        }
+    }
+}
+
+.sidebar__close-btn {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    left: calc(-10vh + 8px);
+    top: 33.33%;
+    width: calc(5vmin + 8px);
+    height: calc(5vmin + 8px);
+    padding: 4px;
+    font-size: 2vh;
+    box-sizing: border-box;
+    border: 2px solid #282530;
+    border-radius: 10vh;
+    transition: 0.1s, transform 0s;
+    cursor: pointer;
+    box-shadow: 0 1px 5px 1px $main-color;
+    span {
+      font-weight: bold;
+    }
+    &:hover {
+      background-color: #ffffff10;
+    }
+    &:active {
+      background-color: #ffffff30;
+    }
+  }
+
+.sidebar-btn-open {
+    position: absolute;
+    animation-name: toleft;
+    animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    right: 0;
+    top: 33.33vh;
+    width: 42px;
+    height: 42px;
+    font-size: 2vh;
+    border: 2px solid #282530;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    transition: 0.3s, transform 0s width 0s height 0s;
+    cursor: pointer;
+    box-shadow: 0 1px 5px 1px $main-color;
+    z-index: 100;
+    img {
+      height: 75%;
+    }
+    &:hover {
+        background-color: #ffffff0a;
+    }
+    &:active {
+        transform: none;
+        height: 42px;
+        width: 42px;
+        animation-name: open-btn-active;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-in-out;
+        animation-fill-mode: forwards;
+        margin-right: 4px;
+        border-radius: 50px;
+    }
+}
+
+
+@media screen and (max-width: 720px) {
+    .sidebar {
+      opacity: 1;
+      box-shadow: -32px 1px 256px #00000090,
+        -16px 1px 32px #00000060,
+       -3px 1px 6px #000000A0;
+    }
+    
+    .sidebar-btn-open {
+        top: auto;
+        bottom: 25vh;
+    }
+
+    .sidebar__close-btn {
+      top: auto;
+      bottom: 10vh;
+      left: calc((-6vmin + 8px) * 2 - 16px);
+      right: auto;
+      width: calc(6vmin + 8px);
+      height: calc(6vmin + 8px);
+    }
+  }
+
+  @keyframes sidebar-anim {
+    from {
+      width: 0%;
+      opacity: 0;
+      overflow-x: hidden;
+    }
+    25% {
+      opacity: 0;
+    }
+    to {
+      overflow-x: auto;
+    }
+}
+
+
+@keyframes toleft {
+    from {
+      transform: scale(0);
+      opacity: 0;
+    }
+    80% {
+      border-radius: 100px;
+    }
+}
+  
+@keyframes open-btn-active {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.3);
+      opacity: 0;
+    }
+}

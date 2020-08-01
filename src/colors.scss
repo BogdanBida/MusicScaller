@@ -1,6 +1,7 @@
 $main-color: #94d8d8;
-$background: linear-gradient(to right bottom, #282530, #4a454d);
-$background: linear-gradient(to right bottom, #221e2c, #3e3344);
+$bgcol1: #221e2c;
+$bgcol2: #3e3344;
+$background: linear-gradient(to right bottom, $bgcol1, $bgcol2);
 
 $seventh-color: rgb(62, 98, 255);
 $sixth-color: rgb(255, 36, 171);
@@ -10,3 +11,16 @@ $third-color: rgb(58, 255, 51);
 $second-color: rgb(71, 166, 255);
 $tonic-color: rgb(255, 74, 74);
 $addition-color: rgb(220, 80, 255);
+
+$tonic-color: #036BFA; // from A tonic - A
+$minSecond-color: #4622e9;  // A#
+$majSecond-color: #a518fd; // B
+$minThird-color: #db2aff; // C
+$majThird-color: #be1171;   // C#
+$perfectFourth-color: #c11; // D
+$tritone-color: #ff4d00; // D#
+$perfectFifth-color: #FE8701; // E
+$minSixth-color: #f2ff00; // F
+$majSixth-color: #9dff00; // F#
+$minSeventh-color: #23df26; // G
+$majSeventh-color: #04FCB0; // G#

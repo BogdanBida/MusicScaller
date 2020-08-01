@@ -1,18 +1,21 @@
-<a class="backlink" routerLink="/home">BACK</a>
+<app-link-to-home></app-link-to-home>
 <section class="keyboard">
   <div class="key" *ngFor="let note of getNotes(); let id = index" (click)="play(id)"
-  [ngClass]="whiteKeys [note.getId()]?'whiteKey':'blackKey'">
+  [ngClass]="whiteKeys[note.getId()]?'whiteKey':'blackKey'">
     <div class="color-layer"
     [ngClass]="{
       'note-disabled': getStageId(note.getId()) == 0,
-      'note-active': isActiveNote(note.getId()),
-      'note-addition': getStageId(note.getId()) == 12,
-      'note-seventh': getStageId(note.getId()) == 7,
-      'note-sixth': getStageId(note.getId()) == 6,
-      'note-penta': getStageId(note.getId()) == 5,
-      'note-fourth': getStageId(note.getId()) == 4,
-      'note-third': getStageId(note.getId()) == 3,
-      'note-second' : getStageId(note.getId()) == 2,
+      'note-maj-seventh': getStageId(note.getId()) == 12,
+      'note-min-seventh': getStageId(note.getId()) == 11,
+      'note-maj-sixth': getStageId(note.getId()) == 10,
+      'note-min-sixth': getStageId(note.getId()) == 9,
+      'note-fifth': getStageId(note.getId()) == 8,
+      'note-tritone': getStageId(note.getId()) == 7,
+      'note-fourth': getStageId(note.getId()) == 6,
+      'note-maj-third': getStageId(note.getId()) == 5,
+      'note-min-third': getStageId(note.getId()) == 4,
+      'note-maj-second' : getStageId(note.getId()) == 3,
+      'note-min-second' : getStageId(note.getId()) == 2,
       'note-tonic': getStageId(note.getId()) == 1}">
     </div>
     <span>{{note.getName()}}</span>

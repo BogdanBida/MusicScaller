@@ -1,0 +1,24 @@
+<div class="sidebar-btn-open" (click)="show = true" *ngIf="!show">
+  <img src="../../../assets/icons/addition.png" alt="">
+</div>
+<nav class="sidebar" *ngIf="show == true">
+  <div (click)="show = false" class="sidebar__close-btn">
+    <span>X</span>
+  </div>
+  <button routerLink="/chord-finder" class="">
+    <img src="../../../assets/icons/chord.png" alt="">
+    <span>Chord finder</span>
+  </button>
+  <!-- <button routerLink="/analyzer" class="disabled">
+    <img src="../../../assets/icons/analyzer.png" alt="">
+    <span>Analyzer</span>
+  </button> -->
+  <button routerLink="/kalimba" class="">
+    <img src="../../../assets/icons/kalimba.png" alt="">
+    <span>Kalimba</span>
+  </button>
+  <!-- <button routerLink="/accordion" class="disabled">
+    <img src="../../../assets/icons/accordion.png" alt="">
+    <span>Accodrion</span>
+  </button> -->
+</nav>

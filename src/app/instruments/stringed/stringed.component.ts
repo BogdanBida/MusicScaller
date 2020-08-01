@@ -13,7 +13,7 @@ export class StringedComponent implements OnInit {
   private readonly MINSTRINGS = 1;
   public objectKeys = Object.keys;
   public stringRows: StringRow[] = [];
-  public readonly SCALES = Data.SCALES;
+  public readonly SCALES = Data.NEW_SCALES;
 
   public readonly TUNES = {
     "Standart Guitar" : [7, 2, 10, 5, 0, 7],
@@ -77,12 +77,8 @@ export class StringedComponent implements OnInit {
     return false;
   }
 
-  public getStageId(id: number) {
-    return this.getScaleMap((12 - (this.selectTonic - id)) % 12);
+  public getStageId(noteId: number) {
+    let stage = 1 + (noteId + 12 - this.selectTonic) % 12;
+    return this.SCALES[this.selectScale].includes(stage)? stage:0;
   }
-
-  private getScaleMap(id: number) {
-    return this.SCALES[this.selectScale][id];
-  }
-
 }

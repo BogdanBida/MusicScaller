@@ -1,18 +1,14 @@
-<a class="backlink" routerLink="/home">BACK</a>
+<app-link-to-home></app-link-to-home>
 <div class="wrapper">
   <section class="main-section">
     <router-outlet (activate)="showMsg=false"></router-outlet>
     <div *ngIf="showMsg" class="msg">Select Instrument <span>&#10148;</span></div>
   </section>
   <section class="sidebar">
-    <button class="" routerLink="/home">
-      <img src="../../assets/icons/back.png" alt="">
-      <span>Back</span>
-    </button>
-    <button class="disabled">
+    <!-- <button class="disabled">
       <img src="../../assets/icons/saxophone.png" alt="">
       <span>Saxophone</span>
-    </button>
+    </button> -->
     <button class="" routerLink="harmonica">
       <img src="../../assets/icons/lips-harmonica.png" alt="">
       <span>Harmonica</span>
@@ -26,5 +22,4 @@
       <span>Trumpet</span>
     </button>
   </section>
-
 </div>

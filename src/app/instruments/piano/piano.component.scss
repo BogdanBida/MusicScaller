@@ -71,46 +71,44 @@ $keyWidth: 30px;
         content: "I";
     }
 }
-.note-second {
-    background-color: $second-color;
+
+.note-min-second {
+    background-color: $minSecond-color;
 }
-.note-third {
-    background-color: $third-color;
-    height: 12%;
-    &:after {
-        @extend .mark;
-        content: "III";
-    }
+.note-maj-second {
+    background-color: $majSecond-color;
+}
+.note-min-third {
+    background-color: $minThird-color;
+}
+.note-maj-third {
+    background-color: $majThird-color;
 }
 .note-fourth {
-    background-color: $fourth-color;
+    background-color: $perfectFourth-color;
 }
-.note-penta {
-    background-color: $fifth-color;
+.note-tritone {
+    background-color: $tritone-color;
+}
+.note-fifth {
+    background-color: $perfectFifth-color;
     height: 12% !important;
     &:after {
         @extend .mark;
         content: "V";
     }
 }
-.note-sixth {
-    background-color: $sixth-color;
+.note-min-sixth {
+    background-color: $minSixth-color;
 }
-.note-seventh {
-    background-color: $seventh-color;
-    height: 12% !important;
-    &:after {
-        @extend .mark;
-        content: "VII";
-    }
+.note-maj-sixth {
+    background-color: $majSixth-color;
 }
-
-.note-active {
-    background-color: rgb(145, 212, 139);
+.note-min-seventh {
+    background-color: $minSeventh-color;
 }
-
-.note-addition {
-    background-color: $addition-color;
+.note-maj-seventh {
+    background-color: $majSeventh-color;
 }
 
 .note-disabled {

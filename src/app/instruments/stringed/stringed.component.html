@@ -1,4 +1,4 @@
-<a class="backlink" routerLink="/home">BACK</a>
+<app-link-to-home></app-link-to-home>
 <div class="wrapper">
   <section class="fret">
     <div class="string-row" *ngFor="let row of stringRows; let i = index">
@@ -7,14 +7,23 @@
           <div class="wheel-top" [style.transform]="'rotate(' + (360/12)*row.firstNote.getId() + 'deg)'"></div>
         </div>
       </div>
-      <div class="note" *ngFor="let noteItem of row.getNotes()" [ngClass]="{
-      'note-disabled': getStageId(noteItem.getId()) == 0,
-      'note-active': isActiveNote(noteItem.getId()),
-      'note-addition': getStageId(noteItem.getId()) == 12,
-      'note-penta': getStageId(noteItem.getId()) == 5,
-      'note-third': getStageId(noteItem.getId()) == 3,
-      'note-tonic': getStageId(noteItem.getId()) == 1}">
-        {{noteItem.getName()}}
+      <div class="note" *ngFor="let note of row.getNotes()" [ngClass]="{
+      'note-disabled': getStageId(note.getId()) == 0,
+      'note-maj-seventh': getStageId(note.getId()) == 12,
+      'note-min-seventh': getStageId(note.getId()) == 11,
+      'note-maj-sixth': getStageId(note.getId()) == 10,
+      'note-min-sixth': getStageId(note.getId()) == 9,
+      'note-fifth': getStageId(note.getId()) == 8,
+      'note-tritone': getStageId(note.getId()) == 7,
+      'note-fourth': getStageId(note.getId()) == 6,
+      'note-maj-third': getStageId(note.getId()) == 5,
+      'note-min-third': getStageId(note.getId()) == 4,
+      'note-maj-second' : getStageId(note.getId()) == 3,
+      'note-min-second' : getStageId(note.getId()) == 2,
+      'note-tonic': getStageId(note.getId()) == 1}">
+        <div class="notename-wrapper">
+          {{note.getName()}}
+        </div>
       </div>
     </div>
   </section>

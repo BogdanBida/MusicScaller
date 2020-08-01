@@ -18,6 +18,8 @@ import { LipsHarmonicaComponent } from './instruments/winds/lips-harmonica/lips-
 import { TrumpetComponent } from './instruments/winds/trumpet/trumpet.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LinkToHomeComponent } from './link-to-home/link-to-home.component';
+import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component';
 
 @NgModule({
    declarations: [
@@ -33,7 +35,9 @@ import { environment } from '../environments/environment';
       WindsComponent,
       BlockFluteComponent,
       LipsHarmonicaComponent,
-      TrumpetComponent
+      TrumpetComponent,
+      LinkToHomeComponent,
+      HomeSidebarComponent
    ],
    imports: [
       BrowserModule,
