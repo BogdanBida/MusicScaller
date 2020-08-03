@@ -1,33 +1,5 @@
 @import '../../colors.scss';
 
-.link {
-    text-decoration: none;
-    color: $main-color;
-    position: absolute;
-    top: 4px;
-    left: 8px;
-    z-index: 10;
-    padding: 4px 8px;
-    border-radius: 4px;
-    width: 3em;
-    min-width: 44px;
-    background-color: #4e4d52;
-    box-shadow: 2px 3px 16px #00000050;
-    border: 2px solid $main-color;
-    cursor: pointer;
-    transition: 0.3s;
-    &:hover {
-      border-radius: 0 4px 4px 0px;
-      left: 0;
-      width: calc(3em + 8px);
-    }
-    &:active {
-      transition: 0.1s;
-      filter: brightness(1.1);
-      box-shadow: none;
-    }
-}
-
 .backlink {
   img {
     width: 16px;
@@ -36,6 +8,7 @@
     margin-top: 32px;
   }
   position: absolute;
+  z-index: 999;
   height: 88px;
   width: 88px; 
   top: -44px;
@@ -53,5 +26,17 @@
   opacity: 0.9;
   &:hover {
     transform: scale(1.25);
+  }
+}
+
+@media screen and (orientation: portrait) {
+  .backlink {
+    // top: auto;
+    // right: -44px;
+    // bottom: -44px;
+    // left: auto;
+    // img {
+    //   margin: 0 32px 32px 0;
+    // }
   }
 }

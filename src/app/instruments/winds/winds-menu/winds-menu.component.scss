@@ -1,0 +1,49 @@
+@import '../../../../colors.scss';
+
+nav {
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    background-color: $bg-nav-color;
+    padding: 0 8px;
+    box-sizing: border-box;
+    box-shadow: 0px -3px 12px black,
+    inset 0 2px 32px #ffffff40;
+    button {
+        width: calc(100% / 4);
+        display: flex;
+        background-color: transparent;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: whitesmoke;
+        background-color: transparent;
+        padding: 8px 0 14px 0;
+        box-sizing: border-box;
+        border-left: 1px solid #050505;
+        border-right: 1px solid #050505;
+        z-index: 11;
+        margin-top: -2px;
+        border-top: 2px solid transparent;
+        transition: 0.3s;
+        img {
+            width: 32px;
+            height: 32px;
+        }
+        &:hover {
+            z-index: 12;
+            border-top: 2px solid $main-color;
+            filter: drop-shadow(0px 0px 48px $main-color);
+        }
+    }
+}
+
+.disabled {
+    pointer-events: none;
+    filter: brightness(0.5);
+}
+
+.selected {
+    border-top: 2px solid mix($main-color,green) !important;
+}

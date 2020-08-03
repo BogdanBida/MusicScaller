@@ -4,43 +4,29 @@
     <div class="tongue-row">
       <div class="tongue" *ngFor="let tongue of getTongues(); let id = index" [style.height]="tongue.len + 50 + '%'"
         (click)="play(tongue.note)">
-        <div class="mark" [ngClass]="{'note-active': inTonality(tongue.note) != 0,
-        'note-addition': inTonality(tongue.note) == 12,
-        'note-seventh' : inTonality(tongue.note) == 7,
-        'note-sixth' : inTonality(tongue.note) == 6,
-        'note-fifth' : inTonality(tongue.note) == 5,
-        'note-fourth': inTonality(tongue.note) == 4,
-        'note-third': inTonality(tongue.note) == 3,
-        'note-second': inTonality(tongue.note) == 2,
-        'note-tonic' : inTonality(tongue.note) == 1}"></div>
+        <div class="mark" [ngClass]="{'note-maj-seventh': getStageId(tongue.note) == 12,
+        'note-min-seventh' : getStageId(tongue.note) == 11,
+        'note-maj-sixth' : getStageId(tongue.note) == 10,
+        'note-min-sixth' : getStageId(tongue.note) == 9,
+        'note-fifth' : getStageId(tongue.note) == 8,
+        'note-tritone' : getStageId(tongue.note) == 7,
+        'note-fourth': getStageId(tongue.note) == 6,
+        'note-maj-third': getStageId(tongue.note) == 5,
+        'note-min-third': getStageId(tongue.note) == 4,
+        'note-maj-second': getStageId(tongue.note) == 3,
+        'note-min-second': getStageId(tongue.note) == 2,
+        'note-tonic' : getStageId(tongue.note) == 1}"></div>
         {{NOTES[tongue.note % 12]}}</div>
     </div>
     <div class="hole"></div>
   </section>
   <section class="settings">
-    <div class="select-container">
-      <label for="selectTonic">Tonic</label>
-      <select name="selectTonic" [(ngModel)]="selectTonic">
-        <option [value]="0" selected>A</option>
-        <option [value]="1">A#</option>
-        <option [value]="2">B</option>
-        <option [value]="3">C</option>
-        <option [value]="4">C#</option>
-        <option [value]="5">D</option>
-        <option [value]="6">D#</option>
-        <option [value]="7">E</option>
-        <option [value]="8">F</option>
-        <option [value]="9">F#</option>
-        <option [value]="10">G</option>
-        <option [value]="11">G#</option>
-      </select>
-    </div>
-    <div class="select-container">
-      <label for="selectScale">Scale</label>
-      <select name="selectScale" [(ngModel)]="selectScale">
-        <option *ngFor="let scale of SCALES | keyvalue" [value]="scale.key">{{scale.key}}</option>
-      </select>
-    </div>
+    <app-musicscale-settings class="selects-wrapper"
+    [defaultTonic]="selectTonic"
+    [defaultScale]="selectScale"
+    (tonicEmitter)="selectTonic = $event"
+    (scaleEmitter)="selectScale = $event"
+    ></app-musicscale-settings>
     <div class="select-container">
       <label for="selectTune">Tune</label>
       <select name="selectTune" [(ngModel)]="selectTuneName" (change)="selectTune = tunes[selectTuneName]">

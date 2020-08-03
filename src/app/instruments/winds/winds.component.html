@@ -2,24 +2,7 @@
 <div class="wrapper">
   <section class="main-section">
     <router-outlet (activate)="showMsg=false"></router-outlet>
-    <div *ngIf="showMsg" class="msg">Select Instrument <span>&#10148;</span></div>
+    <div *ngIf="showMsg" class="msg">Select an instrument <span>&#10148;</span></div>
   </section>
-  <section class="sidebar">
-    <!-- <button class="disabled">
-      <img src="../../assets/icons/saxophone.png" alt="">
-      <span>Saxophone</span>
-    </button> -->
-    <button class="" routerLink="harmonica">
-      <img src="../../assets/icons/lips-harmonica.png" alt="">
-      <span>Harmonica</span>
-    </button>
-    <button class="" routerLink="block-flute">
-      <img src="../../assets/icons/woodwind.png" alt="">
-      <span>Block flute</span>
-    </button>
-    <button class="" routerLink="trumpet" class="">
-      <img src="../../assets/icons/trumpet.png" alt="">
-      <span>Trumpet</span>
-    </button>
-  </section>
+  <app-winds-menu></app-winds-menu>
 </div>

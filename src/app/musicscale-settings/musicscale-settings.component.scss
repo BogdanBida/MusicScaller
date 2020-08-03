@@ -1,0 +1,40 @@
+.select-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 8px;
+    label {
+      margin: 8px;
+      font-size: 24px;
+    }
+    select {
+      min-width: 6em;
+    height: 44px;
+      font-size: 18px;
+      padding: 4px;
+      text-align: center;
+      border: 0;
+      background-color: #282530;
+      color: white;
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    .select-container {
+      justify-content: center;
+      flex-direction: column;
+      width: 100%;
+      margin-bottom: 8px;
+      label {
+        font-size: 18px;
+        margin: 0;
+      }
+      select {
+        font-size: 14px;
+      }
+      label, select {
+        height: 28px;
+        width: 100%;
+      }
+    }
+  }

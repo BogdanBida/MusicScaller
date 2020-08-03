@@ -1,9 +1,8 @@
 <app-link-to-home></app-link-to-home>
 <section class="keyboard">
   <div class="key" *ngFor="let note of getNotes(); let id = index" (click)="play(id)"
-  [ngClass]="whiteKeys[note.getId()]?'whiteKey':'blackKey'">
-    <div class="color-layer"
-    [ngClass]="{
+    [ngClass]="whiteKeys[note.getId()]?'whiteKey':'blackKey'">
+    <div class="color-layer" [ngClass]="{
       'note-disabled': getStageId(note.getId()) == 0,
       'note-maj-seventh': getStageId(note.getId()) == 12,
       'note-min-seventh': getStageId(note.getId()) == 11,
@@ -21,33 +20,11 @@
     <span>{{note.getName()}}</span>
   </div>
 </section>
-<section class="menu">
+<div class="menu">
   <div class="rangeNotes">
     <label for="range">Range {{countOfKeys}} notes</label>
-    <input type="range" name="range" min="12" max="68" value="48" [(ngModel)]="countOfKeys">
+    <input type="range" name="range" min="13" max="88" value="48" [(ngModel)]="countOfKeys">
   </div>
- 
-  <div class="select-container">
-    <label for="selectTonic">Tonic</label>
-    <select name="selectTonic" [(ngModel)]="selectTonic">
-      <option [value]="0" selected>A</option>
-      <option [value]="1">A#</option>
-      <option [value]="2">B</option>
-      <option [value]="3">C</option>
-      <option [value]="4">C#</option>
-      <option [value]="5">D</option>
-      <option [value]="6">D#</option>
-      <option [value]="7">E</option>
-      <option [value]="8">F</option>
-      <option [value]="9">F#</option>
-      <option [value]="10">G</option>
-      <option [value]="11">G#</option>
-    </select>
-  </div>
-  <div class="select-container">
-    <label for="selectScale">Scale</label>
-    <select name="selectScale" [(ngModel)]="selectScale">
-      <option *ngFor="let scale of SCALES | keyvalue" [value]="scale.key">{{scale.key}}</option>
-    </select>
-  </div>
-</section>
+  <app-musicscale-settings class="selects-wrapper" [defaultTonic]="selectTonic" [defaultScale]="selectScale"
+    (tonicEmitter)="selectTonic = $event" (scaleEmitter)="selectScale = $event"></app-musicscale-settings>
+</div>

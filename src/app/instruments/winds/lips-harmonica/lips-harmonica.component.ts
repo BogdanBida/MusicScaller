@@ -8,7 +8,7 @@ import { AudioService } from 'src/app/services/audio.service';
   styleUrls: ['./lips-harmonica.component.scss']
 })
 export class LipsHarmonicaComponent implements OnInit {
-  public SCALES = Data.SCALES;
+  public SCALES = Data.NEW_SCALES;
   public NOTES = Data.NOTES;
   public holes = [
     [3, 5], // c d
@@ -31,9 +31,9 @@ export class LipsHarmonicaComponent implements OnInit {
   ngOnInit() {
   }
 
-  public inTonality(id: number) {
-    let scale = Data.SCALES[this.selectScale];
-    return scale[(12 - (Number(this.selectTonic) - id)) % 12];
+  public getStageId(noteId: number) {
+    let stage = 1 + (noteId + 12 - this.selectTonic) % 12;
+    return this.SCALES[this.selectScale].includes(stage)? stage:0;
   }
 
   public async play(id: number) {

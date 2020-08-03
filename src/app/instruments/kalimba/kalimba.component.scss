@@ -8,11 +8,21 @@
 }
 
 .settings {
-    width: 25%;
+    padding: 8px;
+    box-sizing: border-box;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-direction: column;
-    align-items: center;
+}
+
+::ng-deep .select-container {
+    justify-content: space-between !important;
+}
+
+.selects-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
 .kalimba {
@@ -71,6 +81,11 @@
             animation-iteration-count: 5;
             animation-timing-function: ease-in-out;
         }
+        &:nth-child(2n - 1) {
+            $sticker-color: rgb(77, 136, 75);
+            background: repeating-linear-gradient(to top, 
+            gainsboro 0%, gainsboro 50%, $sticker-color 50%, $sticker-color 75%);
+        }
     }
 }
 
@@ -94,38 +109,42 @@
         content: "I";
     }
 }
-.note-second {
-    background-color: $second-color;
+.note-min-second {
+    background-color: $minSecond-color;
 }
-.note-third {
-    background-color: $third-color;
-    height: 18%;
-    &::before {
-        content: "III";
-    }
+.note-maj-second {
+    background-color: $majSecond-color;
+}
+.note-min-third {
+    background-color: $minThird-color;
+}
+.note-maj-third {
+    background-color: $majThird-color;
 }
 .note-fourth {
-    background-color: $fourth-color;
+    background-color: $perfectFourth-color;
+}
+.note-tritone {
+    background-color: $tritone-color;
 }
 .note-fifth {
-    background-color: $fifth-color;
+    background-color: $perfectFifth-color;
     height: 20% !important;
     &::before {
         content: "V";
     }
 }
-.note-sixth {
-    background-color: $sixth-color;
+.note-min-sixth {
+    background-color: $minSixth-color;
 }
-.note-seventh {
-    background-color: $seventh-color;
-    height: 18% !important;
-    &::before {
-        content: "VII";
-    }
+.note-maj-sixth {
+    background-color: $majSixth-color;
 }
-.note-addition {
-    background-color: $addition-color;
+.note-min-seventh {
+    background-color: $minSeventh-color;
+}
+.note-maj-seventh {
+    background-color: $majSeventh-color;
 }
 
 @media screen and (max-width: 720px) {
@@ -137,8 +156,14 @@
     .settings {
         flex-direction: row;
         justify-content: space-around;
-        width: 100%;
+        width: 95%;
+        margin-left: 2.5%;
         margin-top: 5vh;
+    }
+    .selects-wrapper {
+        width: 100%;  
+        flex-direction: row;
+        justify-content: space-around;
     }
     .kalimba {
         width: 90%;

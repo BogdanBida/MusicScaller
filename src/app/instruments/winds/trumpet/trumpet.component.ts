@@ -11,7 +11,7 @@ export class TrumpetComponent implements OnInit {
 
   public valvesMap = [[1,1,1],[1,0,1],[0,1,1],[1,1,0],[1,0,0],[0,1,0],[0,0,0]];
   public fingerchartMap = [7,7,5,4,3,5,2];
-  public SCALES = Data.SCALES;
+  public SCALES = Data.NEW_SCALES;
   public NOTES = Data.NOTES;
   public selectTonic = 9;
   public selectScale = "Minor";
@@ -43,9 +43,9 @@ export class TrumpetComponent implements OnInit {
     return res;
   }
 
-  public inTonality(id: number) {
-    let scale = Data.SCALES[this.selectScale];
-    return scale[(12 - (Number(this.selectTonic) - id)) % 12];
+  public getStageId(noteId: number) {
+    let stage = 1 + (noteId + 12 - this.selectTonic) % 12;
+    return this.SCALES[this.selectScale].includes(stage)? stage:0;
   }
 
   public getArray(n: number) {

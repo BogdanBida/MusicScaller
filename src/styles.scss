@@ -3,6 +3,7 @@
 body {
   margin: 0;
   min-width: 360px;
+  min-height: 360px;
   max-width: 100vw;
   width: 100%;
   background: $background;
@@ -30,28 +31,37 @@ button {
 
 .select-container {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
+  margin: 8px;
+  select, button, input {
+    height: 44px;
+  }
   label {
     margin: 8px;
     font-size: 24px;
   }
   select {
-    height: 32px;
-    width: 10vw;
-    font-size: 15px;
+    font-size: 18px;
+    min-width: 6em;
+    padding: 4px;
     text-align: center;
     border: 0;
     background-color: #282530;
     color: white;
   }
   button {
-    height: 32px;
-    border: 0;
-    margin: 2px;
+    font-size: 18px;
+    border: 2px solid $main-color;
+    padding: 4px;
+    border-radius: 4px;
+    margin: 0 2px;
+    color: whitesmoke;
     box-sizing: border-box;
-    background-color: #70d7ff;
-    box-shadow: 0 1px 3px black;
+    background-color: transparent;
+    box-shadow: 0 1px 3px black, 
+    0 1px 8px mix($main-color,red),
+    inset 0 -1px 6px $main-color;
     &:active {
       box-shadow: none;
       filter: brightness(0.9);
@@ -66,22 +76,23 @@ hr {
 
 @media screen and (max-width: 720px) {
   .select-container {
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 8px;
     label {
-      font-size: 18px !important;
-    }
-    button {
-      width: 100%;
-      padding: 2px;
+      font-size: 18px;
+      margin: 0;
     }
     select {
-      font-size: 12px !important;
+      font-size: 14px;
+    }
+    button {
+      font-size: 16px;
+    }
+    label, select, button {
+      height: 28px;
       width: 100%;
-      align-items: stretch;
-      margin: 4px 0;
     }
-    button, select {
-      min-height: 32px;
-    }
-    flex-direction: column;
   }
 }

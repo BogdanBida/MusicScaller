@@ -32,7 +32,7 @@ export class KalimbaComponent implements OnInit {
 
   public selectScale: string = "Major";
   public selectTonic: number = 3;
-  public SCALES = Data.SCALES;
+  public SCALES = Data.NEW_SCALES;
 
   public getTongues() {
     let values = [];
@@ -66,8 +66,13 @@ export class KalimbaComponent implements OnInit {
     this.audioService.play(id, 150, "sine", [0.02, 0.1,0.1,0.15]);
   }
 
-  public inTonality(id: number) {
+  public inTonality2(id: number) {
       let scale = Data.SCALES[this.selectScale];
       return scale[(12 - (Number(this.selectTonic) - id)) % 12];
+  }
+  
+  public getStageId(noteId: number) {
+    let stage = 1 + (noteId + 12 - this.selectTonic) % 12;
+    return this.SCALES[this.selectScale].includes(stage)? stage:0;
   }
 }

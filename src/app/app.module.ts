@@ -20,6 +20,8 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LinkToHomeComponent } from './link-to-home/link-to-home.component';
 import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component';
+import { MusicscaleSettingsComponent } from './musicscale-settings/musicscale-settings.component';
+import { WindsMenuComponent } from './instruments/winds/winds-menu/winds-menu.component';
 
 @NgModule({
    declarations: [
@@ -37,7 +39,9 @@ import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component
       LipsHarmonicaComponent,
       TrumpetComponent,
       LinkToHomeComponent,
-      HomeSidebarComponent
+      HomeSidebarComponent,
+      MusicscaleSettingsComponent,
+      WindsMenuComponent
    ],
    imports: [
       BrowserModule,

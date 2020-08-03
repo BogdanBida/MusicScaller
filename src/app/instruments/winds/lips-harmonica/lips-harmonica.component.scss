@@ -2,12 +2,12 @@
 
 .settings {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     width: 100%;
 }
 
 .harm-wrapper {
-    width: 75vw;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,6 @@
 .harm-container {
     display: flex;
     width: 100%;
-    height: auto;
     height: 15vw;
     justify-content: center;
     align-items: center;
@@ -61,7 +60,7 @@
                 box-sizing: border-box;
                 height: 40%;
                 width: 100%;
-                font-size: 1.5vw;
+                font-size: 14px;
                 border: 2px solid #202020;
                 cursor: pointer;
                 &:hover {
@@ -77,10 +76,9 @@
         position: absolute;
         margin-top: -80%;
         margin-left: 50%;
-        font-size: 0.7vw;
+        font-size: 10px;
     }
     box-shadow: 0 0 8px $main-color;
-    border: 2px solid $main-color !important;
 }
 
 .note-tonic {
@@ -88,63 +86,70 @@
         content: "I";
     }
     @extend .note-active;
-    border-bottom: 4px solid $tonic-color !important;
-    filter: drop-shadow(0 0 2px $tonic-color);
+    border-bottom: 4px solid $tonic-color;
+    filter: drop-shadow(0 0 1px $tonic-color);
 }
 
-.note-second {
-    &::before {
-        content: "II";
-    }
-    @extend .note-active;
-    border-bottom: 4px solid $second-color !important;
-    filter: drop-shadow(0 0 2px $second-color);
+.note-min-second {
+  @extend .note-active;
+  border-bottom: 4px solid $minSecond-color;
+  filter: drop-shadow(0 0 1px $minSecond-color);
 }
-.note-third {
-    &::before {
-        content: "III";
-    }
+.note-maj-second {
     @extend .note-active;
-    border-bottom: 4px solid $third-color !important;
-    filter: drop-shadow(0 0 2px $third-color);
+    border-bottom: 4px solid $majSecond-color;
+    filter: drop-shadow(0 0 1px $majSecond-color);
+}
+
+.note-min-third {
+  @extend .note-active;
+  border-bottom: 4px solid $minThird-color;
+  filter: drop-shadow(0 0 1px $minThird-color);
+}
+.note-maj-third {
+    @extend .note-active;
+    border-bottom: 4px solid $majThird-color;
+    filter: drop-shadow(0 0 1px $majThird-color);
 }
 .note-fourth {
-    &::before {
-        content: "IV";
-    }
     @extend .note-active;
-    border-bottom: 4px solid $fourth-color !important;
-    filter: drop-shadow(0 0 2px $fourth-color);
+    border-bottom: 4px solid $perfectFourth-color;
+    filter: drop-shadow(0 0 1px $perfectFourth-color);
 }
-
+.note-tritone {
+  @extend .note-active;
+  border-bottom: 4px solid $tritone-color;
+  filter: drop-shadow(0 0 1px $tritone-color);
+}
 .note-fifth {
     &::before {
         content: "V";
     }
     @extend .note-active;
-    border-bottom: 4px solid $fifth-color !important;
-    filter: drop-shadow(0 0 2px $fifth-color);
+    border-bottom: 4px solid $perfectFifth-color;
+    filter: drop-shadow(0 0 1px $perfectFifth-color);
+}
+.note-min-sixth {
+  @extend .note-active;
+  border-bottom: 4px solid $minSixth-color;
+  filter: drop-shadow(0 0 1px $minSixth-color);
+}
+.note-maj-sixth {
+  @extend .note-active;
+  border-bottom: 4px solid $majSixth-color;
+  filter: drop-shadow(0 0 1px $majSixth-color);
+}
+.note-min-seventh {
+  @extend .note-active;
+  border-bottom: 4px solid $minSeventh-color;
+  filter: drop-shadow(0 0 1px $minSeventh-color);
+}
+.note-maj-seventh {
+  @extend .note-active;
+  border-bottom: 4px solid $majSeventh-color;
+  filter: drop-shadow(0 0 1px $majSeventh-color);
 }
 
-.note-sixth {
-    &::before {
-        content: "VI";
-    }
-    @extend .note-active;
-    border-bottom: 4px solid $sixth-color !important;
-    filter: drop-shadow(0 0 2px $sixth-color);
-}
-.note-seventh {
-    &::before {
-        content: "VII";
-    }
-    @extend .note-active;
-    border-bottom: 4px solid $seventh-color !important;
-    filter: drop-shadow(0 0 2px $seventh-color);
-}
-
-.note-addition {
-    @extend .note-active;
-    border-bottom: 4px solid $addition-color !important;
-    filter: drop-shadow(0 0 2px $addition-color);
+.note-disabled {
+  filter: brightness(0.5);
 }

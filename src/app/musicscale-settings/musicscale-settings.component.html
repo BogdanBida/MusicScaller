@@ -1,0 +1,12 @@
+<div class="select-container">
+  <label for="selectTonic">Tonic</label>
+  <select name="selectTonic" [(ngModel)]="selectTonic" (ngModelChange)="changeTonic($event)">
+    <option *ngFor="let note of NOTES; let id = index" [value]="id">{{note}}</option>
+  </select>
+</div>
+<div class="select-container">
+  <label for="selectScale">Scale</label>
+  <select name="selectScale" [(ngModel)]="selectScale" (ngModelChange)="changeScale($event)">
+    <option *ngFor="let scale of SCALES | keyvalue" [value]="scale.key">{{scale.key}}</option>
+  </select>
+</div>

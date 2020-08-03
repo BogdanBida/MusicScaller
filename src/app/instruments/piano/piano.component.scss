@@ -3,21 +3,25 @@
 $keyWidth: 30px;
 
 .keyboard {
-    height: 33.33vh;
-    border-bottom: 4px solid $main-color;
-    margin-top: 24px;
+    height: calc(50vh - 52px);
+    border-bottom: 4px solid $bgcol2;
+    margin-top: 52px;
     width: 100%;
-    border-top: 2px solid #404040;
+    border-top: 4px solid #404040;
     overflow-y: hidden;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    justify-content: flex-start;
+    box-shadow: 0 -16px 32px rgba(0,0,0,0.5), 
+    inset 4px 0px 6px black,
+    0 0 12px rgba(0,0,0,0.5),
+    0 16px 32px rgba(255,255,255,0.1);
+    background: repeating-linear-gradient(to right, transparent 0px, transparent 8px, $bgcol1 8px, $bgcol1 10px);
 }
 
 .key {
-    height: 100%;
     cursor: pointer;
-    width: $keyWidth !important;
+    height: 100%;
+    min-width: $keyWidth;
     margin: 0 2px;
     display: flex;
     flex-direction: column;
@@ -120,13 +124,32 @@ $keyWidth: 30px;
 
 .menu {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    height: calc(66.66vh - 24px);
+    flex-direction: column;
+    height: calc(60vh - 24px);
+    width: 95%;
+    margin-left: 2.5%;
 }
 
 .rangeNotes {
     width: 33.33%;
     display: flex;
     flex-direction: column;
+}
+
+.selects-wrapper { 
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+@media screen and (max-width: 720px) {
+    .selects-wrapper {
+        flex-direction: column;
+        width: 75%;
+    }
+    .rangeNotes {
+        width: 60%;
+    }
 }
