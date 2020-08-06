@@ -3,19 +3,8 @@
   <section class="kalimba">
     <div class="tongue-row">
       <div class="tongue" *ngFor="let tongue of getTongues(); let id = index" [style.height]="tongue.len + 50 + '%'"
-        (click)="play(tongue.note)">
-        <div class="mark" [ngClass]="{'note-maj-seventh': getStageId(tongue.note) == 12,
-        'note-min-seventh' : getStageId(tongue.note) == 11,
-        'note-maj-sixth' : getStageId(tongue.note) == 10,
-        'note-min-sixth' : getStageId(tongue.note) == 9,
-        'note-fifth' : getStageId(tongue.note) == 8,
-        'note-tritone' : getStageId(tongue.note) == 7,
-        'note-fourth': getStageId(tongue.note) == 6,
-        'note-maj-third': getStageId(tongue.note) == 5,
-        'note-min-third': getStageId(tongue.note) == 4,
-        'note-maj-second': getStageId(tongue.note) == 3,
-        'note-min-second': getStageId(tongue.note) == 2,
-        'note-tonic' : getStageId(tongue.note) == 1}"></div>
+        (mousedown)="play(tongue.note)" (mouseup)="stopAudio()" (mouseleave)="stopAudio()">
+        <div class="mark" [ngClass]="getStageId(tongue.note) | notecolor"></div>
         {{NOTES[tongue.note % 12]}}</div>
     </div>
     <div class="hole"></div>

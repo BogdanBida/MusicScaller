@@ -1,25 +1,14 @@
 <div class="block-flute-wrapper">
   <div class="notelist">
-    <ng-template ngFor let-note [ngForOf]="NOTE_MAP" let-id="index">
-      <div class="note" *ngIf="getStageId((id+root)%12) != 0" (click)="play(id+root)">
-        <div class="mark" [ngClass]="{
-        'note-maj-seventh': getStageId((id+root) % 12) == 12,
-        'note-min-seventh' : getStageId((id+root) % 12) == 11,
-        'note-maj-sixth' : getStageId((id+root) % 12) == 10,
-        'note-min-sixth' : getStageId((id+root) % 12) == 9,
-        'note-fifth' : getStageId((id+root) % 12) == 8,
-        'note-tritone' : getStageId((id+root) % 12) == 7,
-        'note-fourth': getStageId((id+root) % 12) == 6,
-        'note-maj-third': getStageId((id+root) % 12) == 5,
-        'note-min-third': getStageId((id+root) % 12) == 4,
-        'note-maj-second': getStageId((id+root) % 12) == 3,
-        'note-min-second': getStageId((id+root) % 12) == 2,
-        'note-tonic': getStageId((id+root) % 12) == 1}">
-          {{NOTES[(id+root) % 12]}}{{trunc((id) / 12) + 5}}
+    <ng-template ngFor let-note [ngForOf]="getNotes()" let-id="index">
+      <div class="note" *ngIf="getStageId((note.noteId)%12) != 0" 
+      (mousedown)="play(note.noteId)" (mouseup)="stopAudio()" (mouseleave)="stopAudio()">
+        <div class="mark" [ngClass]="getStageId(note.noteId % 12) | notecolor">
+          {{NOTES[(note.noteId) % 12]}}{{trunc((note.noteId-3) / 12) + 1}}
         </div>
         <div class="flute-body">
-          <div class="hole" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]" [ngClass]="{'closed-hole': note[i] == 1,
-          'half-closed-hole': note[i] == 2}"></div>
+          <div class="hole" *ngFor="let i of [0,1,2,3,4,5,6,7,8,9]" [ngClass]="{'closed-hole': note.fingering[i] == 1,
+          'half-closed-hole': note.fingering[i] == 2}"></div>
         </div>
       </div>
     </ng-template>
@@ -27,9 +16,9 @@
   <section class="settings">
     <div class="select-container">
       <label for="selectRoot">Root</label>
-      <select name="selectRoot" [(ngModel)]="root">
-        <option [value]="8">F</option>
-        <option [value]="3">C</option>
+      <select name="selectRoot" [(ngModel)]="root" (ngModelChange)="setRoot($event)">
+        <option [ngValue]="44 ">Alto</option>
+        <option [ngValue]="51">Soprano</option>
       </select>
     </div>
     <app-musicscale-settings class="selects-container" [defaultTonic]="selectTonic" [defaultScale]="selectScale"

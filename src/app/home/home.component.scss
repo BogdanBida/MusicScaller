@@ -4,21 +4,22 @@ $radius: 75vmin;
 $inner_radius: $radius / 2.75;
 
 h1 {
-  width: 100%;
+  position: relative;
   text-align: center;
-  color: white;
+  color: whitesmoke;
   position: relative;
   margin: 0;
-  top: 5vh;
-  letter-spacing: 2em;
-  letter-spacing: 2vw;
-  font-size: 4vh;
+  top: 3vh;
+  letter-spacing: 1.5vmin;
+  font-size: 5vmin;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
 footer {
   position: absolute;
-  bottom: 8px;
-  left: 8px;
+  bottom: 18px;
+  left: 16px;
   font-size: 2vh;
   color: #ccd;
 }
@@ -48,7 +49,7 @@ footer {
   min-height: 256px;
   min-width: 256px;
   margin: 0 auto;
-  opacity: 0.8;
+  opacity: 0.85;
   border-radius: 50%;
   box-shadow: 0px 0px 64px 1px $main-color, inset 0px 0px 32px 4px $main-color;
   animation-name: anim;
@@ -65,7 +66,7 @@ footer {
   
     font-size: 3vmin;
     border-radius: 50%;
-    img {
+    img, svg {
       height: 40%;
       width: 40%;
       position: absolute;

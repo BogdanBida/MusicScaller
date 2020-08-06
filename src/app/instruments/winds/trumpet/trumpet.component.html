@@ -1,31 +1,16 @@
 <div class="wrapper">
-  <section class="main-section">
-    <div class="col">
-      <div class="valves-row" *ngFor="let valves of valvesMap">
-        <div class="valve" *ngFor="let valve of valves" [ngClass]="{'closed':valve==1}"></div>
+  <div class="container">
+    <div class="note-block" *ngFor="let fingering of getFingerings()"
+    (mousedown)="play(fingering.note.getId())" (mouseup)="stopAudio()" (mouseleave)="stopAudio()">
+      <div class="note" [ngClass]="getStageId(fingering.note.getId()) | notecolor">
+        {{fingering.note.getName() + '' + fingering.note.getOctave()}}
       </div>
-      <div class="valves-row"> </div>
-    </div>
-    <div class="col" *ngFor="let col of getNoteColumns(); let colId = index">
-      <div *ngFor="let note of col; let id = index" class="note" (click)="play(note)" [ngClass]="{
-      'note-maj-seventh': getStageId(note) == 12,
-      'note-min-seventh' : getStageId(note) == 11,
-      'note-maj-sixth' : getStageId(note) == 10,
-      'note-min-sixth' : getStageId(note) == 9,
-      'note-fifth' : getStageId(note) == 8,
-      'note-tritone' : getStageId(note) == 7,
-      'note-fourth': getStageId(note) == 6,
-      'note-maj-third': getStageId(note) == 5,
-      'note-min-third': getStageId(note) == 4,
-      'note-maj-second': getStageId(note) == 3,
-      'note-min-second': getStageId(note) == 2,
-      'note-tonic' : getStageId(note) == 1,
-      'note-disabled' : getStageId(note) == 0}">
-        {{NOTES[note % 12]}}{{getOctave(note)}}
+      <div class="valves-block">
+        <div class="valve" *ngFor="let valve of fingering.valves" [ngClass]="{'closed':valve}"></div>
       </div>
-      <span>{{colId+1}}</span>
+      <div class="blow-number">{{fingering.blow}}</div>
     </div>
-  </section>
+  </div>
   <app-musicscale-settings class="settings" [defaultTonic]="selectTonic" [defaultScale]="selectScale"
     (tonicEmitter)="selectTonic = $event" (scaleEmitter)="selectScale = $event"></app-musicscale-settings>
 </div>

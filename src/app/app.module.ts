@@ -22,6 +22,8 @@ import { LinkToHomeComponent } from './link-to-home/link-to-home.component';
 import { HomeSidebarComponent } from './home/home-sidebar/home-sidebar.component';
 import { MusicscaleSettingsComponent } from './musicscale-settings/musicscale-settings.component';
 import { WindsMenuComponent } from './instruments/winds/winds-menu/winds-menu.component';
+import { NoteColorPipe } from './notecolor.pipe';
+import { NoteNamePipe } from './notename.pipe';
 
 @NgModule({
    declarations: [
@@ -41,7 +43,9 @@ import { WindsMenuComponent } from './instruments/winds/winds-menu/winds-menu.co
       LinkToHomeComponent,
       HomeSidebarComponent,
       MusicscaleSettingsComponent,
-      WindsMenuComponent
+      WindsMenuComponent,
+      NoteColorPipe,
+      NoteNamePipe
    ],
    imports: [
       BrowserModule,

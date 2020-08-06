@@ -33,6 +33,9 @@ $keyWidth: 30px;
         text-align: center;
         margin: 8px 1px;
     }
+    &:active {
+        filter: invert(25%);
+    }
 }
 
 .color-layer {
@@ -146,7 +149,6 @@ $keyWidth: 30px;
 
 @media screen and (max-width: 720px) {
     .selects-wrapper {
-        flex-direction: column;
         width: 75%;
     }
     .rangeNotes {

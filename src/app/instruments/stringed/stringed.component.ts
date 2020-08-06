@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Data } from '../../models/Data';
-import { StringRow } from '../../models/StringRow';
+import { Note } from '../../models/Note';
+import { AudioService } from 'src/app/services/audio.service';
 
 @Component({
   selector: 'app-stringed',
@@ -9,32 +10,30 @@ import { StringRow } from '../../models/StringRow';
 })
 export class StringedComponent implements OnInit {
 
-  private readonly MAXSTRINGS = 8;
-  private readonly MINSTRINGS = 1;
-  public objectKeys = Object.keys;
-  public stringRows: StringRow[] = [];
-  public readonly SCALES = Data.NEW_SCALES;
-
   public readonly TUNES = {
-    "Standart Guitar" : [7, 2, 10, 5, 0, 7],
-    "Violin" : [7, 0, 5, 10],
-    "8xString Guitar" : [7, 2, 10, 5, 0, 7, 2, 9],
-    "Bass Guitar" : [10, 5, 0, 7],
-    "Balalaika" : [0,7,7],
-    "Ukulele" : [0, 7, 3, 10],
-    "DADGAD" : [5, 0, 10, 5, 0, 5],
-    "Open D" : [5, 0, 9, 5, 0, 5],
-    "Crafty tuning" : [10, 7, 0, 5, 10, 3],
-    "Cross A (Sitar)" : [7,0,7,0,7,0],
-    "All-Fourth" : [8, 3, 10, 5, 0, 7]
+    "Standart Guitar" : [43, 38, 34, 29, 24, 19],
+    "Violin" : [55, 48, 41, 34],
+    "8xString Guitar" : [43, 38, 34, 29, 24, 19, 14, 9],
+    "Bass Guitar" : [22, 17, 12, 7],
+    "Balalaika" : [48, 43, 43],
+    "Ukulele" : [48, 43, 39, 58],
+    "DADGAD" : [41, 36, 34, 29, 24, 17],
+    "Open D" : [41, 36, 33, 29, 24, 17],
+    "Crafty tuning" : [46, 43, 36, 29, 22, 15],
+    "Cross A (Sitar)" : [48, 34 ,36, 31, 24, 19]
   };
 
-  constructor() { }
+  constructor(private audioService: AudioService) { }
 
   public selectTuneName = 'Standart Guitar';
   public selectTune: number[] = this.TUNES[this.selectTuneName];
   public selectScale = "Minor";
   public selectTonic = 7;
+  private readonly MAXSTRINGS = 8;
+  private readonly MINSTRINGS = 1;
+  public readonly FRETS_AMOUNT = 14;
+  public stringRows: Note[] = [];
+  public readonly SCALES = Data.SCALES;
 
   ngOnInit() {
     this.refreshStrings();
@@ -48,21 +47,21 @@ export class StringedComponent implements OnInit {
     }
    
   }
-
-  public wheel(event, i: number) {
-    let delta = event.deltaY > 0 ? 1 : -1;
-    this.stringRows[i].firstNote.moveTo(delta);
-  }
-  public isPitchUp: boolean = true;
-  public wheelChange(i: number, isUp: boolean) {
-    this.stringRows[i].firstNote.moveTo(isUp?1:-1);
-  }
-
+  
   public addString() {
     let len = this.stringRows.length;
     if (len < this.MAXSTRINGS) {
-      this.stringRows.push(new StringRow( this.selectTune[ len % this.selectTune.length ]) );
+      this.stringRows.push(new Note(this.selectTune[ len % this.selectTune.length ]))
     }
+  }
+
+  public wheelPeg(event, i: number) {
+    let delta = event.deltaY > 0 ? 1 : -1;
+    this.stringRows[i].moveTo(delta);
+  }
+
+  public pegChange(i: number, isUp: boolean) {
+    this.stringRows[i].moveTo(isUp?1:-1);
   }
 
   public removeString() {
@@ -71,14 +70,15 @@ export class StringedComponent implements OnInit {
       this.stringRows.pop();
   }
 
-  public isActiveNote(id: number) {
-    let t = this.getStageId(id);
-    if (t != 1 && t != 0 && t != 5 && t != 3) return true;
-    return false;
-  }
-
   public getStageId(noteId: number) {
     let stage = 1 + (noteId + 12 - this.selectTonic) % 12;
     return this.SCALES[this.selectScale].includes(stage)? stage:0;
+  }
+
+  public play(id: number) {
+    this.audioService.play(id);
+  }
+  public stopAudio() {
+    this.audioService.stop();
   }
 }

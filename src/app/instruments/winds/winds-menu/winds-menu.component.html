@@ -1,18 +1,30 @@
 <nav>
   <button class="disabled" (click)="btnId = 0" [ngClass]="{'selected':btnId==0}">
-    <img src="../../assets/icons/saxophone.png" alt="">
+    <svg>
+      <image xlink:href="../../assets/icons/svg/saxophone.svg" src="../../assets/icons/saxophone.png" width="100%"
+        height="100%" />
+    </svg>
     <span>Saxophone</span>
   </button>
   <button routerLink="harmonica" (click)="btnId = 1" [ngClass]="{'selected':btnId==1}">
-    <img src="../../assets/icons/lips-harmonica.png" alt="">
+    <svg>
+      <image xlink:href="../../assets/icons/svg/harmonica.svg" src="../../assets/icons/harmonica.png" width="100%"
+        height="100%" />
+    </svg>
     <span>Harmonica</span>
   </button>
   <button routerLink="block-flute" (click)="btnId = 2" [ngClass]="{'selected':btnId==2}">
-    <img src="../../assets/icons/woodwind.png" alt="">
+    <svg>
+      <image xlink:href="../../assets/icons/svg/block-flute.svg" src="../../assets/icons/block-flute.png" width="100%"
+        height="100%" />
+    </svg>
     <span>Block flute</span>
   </button>
   <button routerLink="trumpet" (click)="btnId = 3" [ngClass]="{'selected':btnId==3}">
-    <img src="../../assets/icons/trumpet.png" alt="">
+    <svg>
+      <image xlink:href="../../assets/icons/svg/trumpet.svg" src="../../assets/icons/trumpet.png" width="100%"
+        height="100%" />
+    </svg>
     <span>Trumpet</span>
   </button>
 </nav>

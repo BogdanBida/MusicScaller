@@ -15,7 +15,7 @@ export class PianoComponent {
   public selectScale = 'Major';
   public selectTonic = 3;
   public countOfKeys = 48;
-  public readonly SCALES = Data.NEW_SCALES;
+  public readonly SCALES = Data.SCALES;
 
   constructor(private audioService: AudioService) { }
   
@@ -52,7 +52,11 @@ export class PianoComponent {
   }
 
   public play(id: number) {
-    id = id - Math.trunc((this.countOfKeys-12)/12)*12
-    this.audioService.play(id, 300, "square", [0.1,0.5,0.0,0.1]);
+    id = id - Math.trunc((this.countOfKeys - 60)/12)*12
+    this.audioService.play(id);
+  }
+  
+  public stopAudio() {
+    this.audioService.stop();
   }
 }

@@ -2,69 +2,76 @@
 
 .wrapper {
   width: 100vw;
-  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+.container {
+  position: relative;
+  overflow-x: auto;
+  max-width: 75%;
+  display: flex;
+  padding: 0 16px;
+  border-radius: 32px;
+  border: 4px solid $main-color;
+  border-top: 0;
+  border-bottom: 0;  
+  &::after {
+    width: 16px;
+    content: "-";
+    height: 1px;
+    opacity: 0;
+  }
+}
+
+.note-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 8px;
+  justify-content: space-around;
+  cursor: pointer;
+}
+
+.valves-block {
+  display: flex;
+  flex-direction: column-reverse;
+  margin: 8px;
+}
+
+.blow-number {
+  @extend .note;
+  border-width: 5px !important;
+  border-style: groove !important;
+  border-color: $main-color !important;
+  &::content {
+    z-index: 5;
+    font-size: 15px;
+    text-shadow: 0 1px 3px black;
+  }
+}
+
+.note {
+  @extend .col-item;
+  border: 2px solid #8f8181;
+  font-size: 14px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  text-shadow: 0 1px 8px black;
+  z-index: 4;
+}
+
+.col-item {
+  width: 5vmin;
+  height: 5vmin;
+  min-width: 28px;
+  min-height: 28px;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-}
-
-.main-section {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 8px;
-  overflow-x: auto;
-  .col {
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: flex-end;
-    align-items: center;
-    box-sizing: border-box;
-    border: 2px solid #101020;
-    margin-right: -2px;
-    padding: 1.5vw;
-    .col-item {
-      width: 2.5vw;
-      height: 2.5vw;
-      min-width: 28px;
-      min-height: 28px;
-      margin-top: 1vh;
-      margin-bottom: 1vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .note {
-      @extend .col-item;
-      border: 2px solid #8f8181;
-      font-size: 14px;
-      border-radius: 50%;
-      box-sizing: border-box;
-      cursor: pointer;
-      text-shadow: 0 1px 8px black;
-      z-index: 4;
-    }
-    span {
-      @extend .note;
-      cursor: default;
-      border-width: 5px;
-      border-style: groove;
-      border-color: $main-color;
-      &::content {
-        z-index: 5;
-        font-size: 15px;
-        text-shadow: 0 1px 3px black;
-      }
-    }
-    .valves-row {
-      @extend .col-item;
-      width: auto;
-      display: flex;
-      border-bottom: 2px solid gray;
-      box-sizing: border-box;
-    }
-  }
 }
 
 .valve {
@@ -73,7 +80,7 @@
   height: 1vw;
   min-width: 8px;
   min-height: 8px;
-  margin: 0 2px;
+  margin: 2px 0;
   border-radius: 50%;
   border: 2px solid black;
   box-shadow: -1px 5px 5px black;

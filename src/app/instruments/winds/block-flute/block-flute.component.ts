@@ -12,7 +12,7 @@ export class BlockFluteComponent implements OnInit {
 
   constructor(private audioService: AudioService) { }
   
-  public readonly NOTE_MAP = [ // 0 - open, 1 - closed, 2 - half-closed
+  public readonly NOTE_MAP: number[][] = [ // 0 - open, 1 - closed, 2 - half-closed
     [1,1,1,1,1,1,1,1,1,1], // c
     [1,1,1,1,1,1,1,1,1,0],
     [1,1,1,1,1,1,1,1,0,0], // d
@@ -44,19 +44,25 @@ export class BlockFluteComponent implements OnInit {
   public NOTES = Data.NOTES;
   public selectTonic: number = 3;
   public selectScale = 'Major';
-  public readonly SCALES = Data.NEW_SCALES;
-  public root = 3;
+  public readonly SCALES = Data.SCALES;
+  public root: number = 51;
 
   ngOnInit() {
   }
 
   public getNotes() {
-    let notes: Note[] = [];
-    for (let i = 0; i < 7; i++) {
-      notes.push(new Note(i));
-    }
-    return notes;
+    let result = [];
+    let i: number = 0;
+    this.NOTE_MAP.forEach(element => {
+       result.push({
+         fingering: element,
+         noteId: this.root + i
+       })
+       i++;
+    });
+    return result;
   }
+
   public trunc(n: number): number {
     return Math.trunc(n);
   }
@@ -66,7 +72,14 @@ export class BlockFluteComponent implements OnInit {
     return this.SCALES[this.selectScale].includes(stage)? stage:0;
   }
 
-  public async play(id: number) {
-      this.audioService.play(id, 400, "flute");
+  public play(id: number) {
+      this.audioService.play(id);
+  }
+  public stopAudio() {
+    this.audioService.stop();
+  }
+
+  public setRoot(root: number) {
+    this.root = root;
   }
 }

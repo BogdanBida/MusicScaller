@@ -6,20 +6,9 @@
     <div class="harm">
       <div class="hole" *ngFor="let hole of holes; let id = index">
         <div class="position">{{id+1}}</div>
-        <div class="note" *ngFor="let breath of [0,1]" (click)="play(hole[breath])"
-        [ngClass]="{'note-maj-seventh': getStageId(hole[breath]) == 12,
-        'note-min-seventh' : getStageId(hole[breath]) == 11,
-        'note-maj-sixth' : getStageId(hole[breath]) == 10,
-        'note-min-sixth' : getStageId(hole[breath]) == 9,
-        'note-fifth' : getStageId(hole[breath]) == 8,
-        'note-tritone' : getStageId(hole[breath]) == 7,
-        'note-fourth': getStageId(hole[breath]) == 6,
-        'note-maj-third': getStageId(hole[breath]) == 5,
-        'note-min-third': getStageId(hole[breath]) == 4,
-        'note-maj-second': getStageId(hole[breath]) == 3,
-        'note-min-second': getStageId(hole[breath]) == 2,
-        'note-tonic' : getStageId(hole[breath]) == 1,
-        'note-disabled' : getStageId(hole[breath]) == 0}">
+        <div class="note" *ngFor="let breath of [0,1]" 
+        (mousedown)="play(hole[breath])" (mouseup)="stopAudio()" (mouseleave)="stopAudio()"
+        [ngClass]="getStageId(hole[breath]) | notecolor">
           {{NOTES[hole[breath]%12]}}</div>
       </div>
     </div>

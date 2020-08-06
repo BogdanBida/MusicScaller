@@ -1,55 +1,40 @@
 <app-link-to-home></app-link-to-home>
 <div class="wrapper">
-  <section class="fret">
-    <div class="string-row" *ngFor="let row of stringRows; let i = index">
-      <div class="string-pitcher" (wheel)="wheel($event, i)" (click)="wheelChange(i, isPitchUp)">
-        <div id="wheel{{i}}" class="wheel">
-          <div class="wheel-top" [style.transform]="'rotate(' + (360/12)*row.firstNote.getId() + 'deg)'"></div>
-        </div>
+  <div class="fret">
+    <div class="string-row" *ngFor="let stringRoot of stringRows; let i = index">
+      <div class="string-pitcher" (wheel)="wheelPeg($event, i)">
+        <button (click)="pegChange(i, false)">&#9668;</button>
+        <button (click)="pegChange(i, true)">&#9658;</button>
       </div>
-      <div class="note" *ngFor="let note of row.getNotes()" [ngClass]="{
-      'note-disabled': getStageId(note.getId()) == 0,
-      'note-maj-seventh': getStageId(note.getId()) == 12,
-      'note-min-seventh': getStageId(note.getId()) == 11,
-      'note-maj-sixth': getStageId(note.getId()) == 10,
-      'note-min-sixth': getStageId(note.getId()) == 9,
-      'note-fifth': getStageId(note.getId()) == 8,
-      'note-tritone': getStageId(note.getId()) == 7,
-      'note-fourth': getStageId(note.getId()) == 6,
-      'note-maj-third': getStageId(note.getId()) == 5,
-      'note-min-third': getStageId(note.getId()) == 4,
-      'note-maj-second' : getStageId(note.getId()) == 3,
-      'note-min-second' : getStageId(note.getId()) == 2,
-      'note-tonic': getStageId(note.getId()) == 1}">
+      <div class="note" *ngFor="let f of [].constructor(FRETS_AMOUNT); let fret = index" 
+      (mousedown)="play(fret + stringRoot.getId())" (mouseup)="stopAudio()" 
+      (mouseleave)="stopAudio()" 
+
+        [ngClass]="getStageId(fret + stringRoot.getId()) | notecolor">
         <div class="notename-wrapper">
-          {{note.getName()}}
+          {{(fret + stringRoot.getId()) | notename}}
         </div>
       </div>
     </div>
-  </section>
-  <section class="menu">
-    <div class="string-controller">
-      <div class="pitch-direction"><span>Pitch direction <br>Up/Down</span><input type="checkbox"
-          [(ngModel)]="isPitchUp"></div>
-      <hr>
-      <span>Strings: {{stringRows.length}}</span>
-      <button (click)="addString()">ADD</button>
-      <button (click)="removeString()">REMOVE</button>
-    </div>
-    <div class="selects-wrapper">
+  </div>
+  <div class="menu">
+    <div>
+      <div class="string-controller">
+        <span>Strings: {{stringRows.length}}</span>
+        <div>
+          <button class="button" (click)="addString()">+</button>
+          <button class="button" (click)="removeString()">-</button>
+        </div>
+      </div>
       <div class="select-container">
         <label for="selectTune">Tuning</label>
         <select name="selectTune" [(ngModel)]="selectTuneName" (change)="refreshStrings()">
           <option *ngFor="let tune of TUNES | keyvalue" [value]="tune.key">{{tune.key}}</option>
         </select>
-        <button (click)="refreshStrings()">REFRESH</button>
+        <button class="button refresh-btn" (click)="refreshStrings()">REFRESH</button>
       </div>
-      <app-musicscale-settings class="selects-wrapper"
-      [defaultTonic]="selectTonic"
-      [defaultScale]="selectScale"
-      (tonicEmitter)="selectTonic = $event"
-      (scaleEmitter)="selectScale = $event"
-      ></app-musicscale-settings>
     </div>
-    </section>
+    <app-musicscale-settings class="selects-wrapper" [defaultTonic]="selectTonic" [defaultScale]="selectScale"
+      (tonicEmitter)="selectTonic = $event" (scaleEmitter)="selectScale = $event"></app-musicscale-settings>
+  </div>
 </div>

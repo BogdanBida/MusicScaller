@@ -17,10 +17,10 @@ export class KalimbaComponent implements OnInit {
 
   public NOTES = Data.NOTES;
   public tongues: Tongue[] = [];
-  public tunes = {
-    "Standart 17": [29, 26, 22, 19, 15, 12, 8, 5, 3, 7, 10, 14, 17, 20, 24, 27, 31], //D6 C4 E6
-    "Standart 15": [9, 5, 2, 10, 7, 3, 0, 10, 2, 5, 9, 0, 3, 7, 10],// F5 G3 G6
-    "Standart 10": [7, 3, 0, 8, 5, 3, 7, 10, 2, 5] // E5 C4 D5
+  public tunes = { // +48
+    "Standart 17": [65, 62, 58, 55, 51, 48, 44, 41, 39, 43, 46, 50, 53, 56, 60, 63, 67], //D6 C4 E6
+    "Standart 15": [56, 53, 50, 46, 43, 39, 36, 34, 38, 41, 44, 48, 51, 55, 58],// F5 G3 G6
+    "Standart 10": [55, 51, 48, 44, 41, 39, 43, 46, 50, 53] // E5 C4 D5
   }
   public selectTuneName = "Standart 17"
   public selectTune = this.tunes[this.selectTuneName];
@@ -32,7 +32,7 @@ export class KalimbaComponent implements OnInit {
 
   public selectScale: string = "Major";
   public selectTonic: number = 3;
-  public SCALES = Data.NEW_SCALES;
+  public SCALES = Data.SCALES;
 
   public getTongues() {
     let values = [];
@@ -63,7 +63,10 @@ export class KalimbaComponent implements OnInit {
   }
 
   public play(id: number) {
-    this.audioService.play(id, 150, "sine", [0.02, 0.1,0.1,0.15]);
+    this.audioService.play(id);
+  }
+  public stopAudio() {
+    this.audioService.stop();
   }
 
   public inTonality2(id: number) {

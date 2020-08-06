@@ -8,7 +8,7 @@ import { Data } from '../models/Data';
 })
 export class MusicscaleSettingsComponent {
   
-  public readonly SCALES = Data.NEW_SCALES;
+  public readonly SCALES = Data.SCALES;
   public readonly NOTES = Data.NOTES;
   @Input('defaultTonic') public selectTonic: number;
   @Input('defaultScale') public selectScale: string;

@@ -4,7 +4,7 @@
   <select id="select-chord" [disabled]="countActiveNote < 1" [(ngModel)]="selectedChord">
     <option *ngFor="let chord of chordsMap | keyvalue" [value]="chord.key">{{chord.key}}</option>
   </select>
-  <button [disabled]="countActiveNote < 1" (click)="setChord()">SHOW</button>
+  <button class="button" [disabled]="countActiveNote < 1" (click)="setChord()">SHOW</button>
 </div>
 <div class="wrapper">
   <div class="chord-name">

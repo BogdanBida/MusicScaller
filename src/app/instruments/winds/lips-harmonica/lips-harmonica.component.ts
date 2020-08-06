@@ -8,19 +8,19 @@ import { AudioService } from 'src/app/services/audio.service';
   styleUrls: ['./lips-harmonica.component.scss']
 })
 export class LipsHarmonicaComponent implements OnInit {
-  public SCALES = Data.NEW_SCALES;
+  public SCALES = Data.SCALES;
   public NOTES = Data.NOTES;
   public holes = [
-    [3, 5], // c d
-    [7, 10], // e g
-    [10, 14], // g b
-    [15, 17], // c d
-    [19, 20], // e f
-    [22, 24], // g a
-    [27, 26], // c b
-    [31, 29], // e d
-    [34, 32], // g f
-    [39, 36] // c a
+    [39, 41], // c d
+    [43, 46], // e g
+    [46, 50], // g b
+    [51, 53], // c d
+    [55, 56], // e f
+    [58, 60], // g a
+    [63, 62], // c b
+    [67, 65], // e d
+    [70, 68], // g f
+    [75, 72] // c a
   ];
 
   public selectScale = "Major";
@@ -37,6 +37,9 @@ export class LipsHarmonicaComponent implements OnInit {
   }
 
   public async play(id: number) {
-    this.audioService.play(id - 12, 700, "triangle");
+    this.audioService.play(id - 12);
+  }
+  public stopAudio() {
+    this.audioService.stop();
   }
 }

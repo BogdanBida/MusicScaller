@@ -27,9 +27,11 @@ nav {
         margin-top: -2px;
         border-top: 2px solid transparent;
         transition: 0.3s;
-        img {
-            width: 32px;
+        img, svg {
+            width: 66%;
             height: 32px;
+            min-height: 32px;
+            height: 5vh;
         }
         &:hover {
             z-index: 12;

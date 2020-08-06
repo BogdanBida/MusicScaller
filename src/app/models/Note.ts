@@ -15,13 +15,13 @@ export class Note {
         return this.name;
     }
     public getOctave(): number {
-        return Math.trunc(this.id / 12);
+        return Math.trunc((this.id - 3) / 12) + 1;
     }
 
     public moveTo(delta: number): void {
         this.id -= delta;
         if (this.id < 0) {
-            this.id = 11;
+            this.id = 0;
         }
         this.name = Data.NOTES[this.id % 12];
     }

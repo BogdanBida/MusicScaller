@@ -12,12 +12,24 @@
 }
 
 .notelist {
-  max-width: 100vw;
+  max-width: 90vw;
   display: flex;
+  padding-left: 8px;
   justify-content: flex-start;
   box-sizing: border-box;
   overflow-x: auto;
+  border: 4px solid $main-color;
+  border-radius: 32px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top: 0;
   border-bottom: 2px dashed $main-color;
+  &::after {
+    width: 8px;
+    height: 2px;
+    content: "-";
+    opacity: 0;
+  }
 }
 
 .note {
@@ -29,7 +41,7 @@
   width: 5vw;
   min-width: 24px;
   max-width: 32px;
-  height: 55vh;
+  height: 50vh;
   margin: 8px;
   margin-top: 16px;
   cursor: pointer;
@@ -58,46 +70,37 @@
   position: relative;
   width: 100%;
   height: calc(100% - 3.5rem);
+  min-height: 100px;
   display: flex;
   flex-direction: column-reverse;
   justify-content: space-between;
   align-items: center;
-  background-color: #1f1e19;
-  border-radius: 8px;
+  background-color: #1d1814;
+  border-radius: 6px;
   box-sizing: border-box;
   padding: 12px 0;
   .hole {
-    width: 1.3vh;
-    height: 1.3vh;
+    width: 1.3vmin;
+    height: 1.3vmin;
+    min-height: 4px;
+    min-width: 4px;
     background-color: #707070;
     @extend .note-hole;
     &:first-of-type {
-      width: 2.5vh;
-      height: 2.5vh;
+      width: 2vmin;
+      height: 2vmin;
     }
 
-    &:nth-of-type(7) {
-      left: 1vh;
-    }
-
-    &:nth-of-type(8) {
-      width: 0.7vh;
-      height: 0.7vh;
+    &:nth-of-type(7), &:nth-of-type(9) {
       position: relative;
-      right: 0.6vh;
-      margin-bottom: -4.5vh;
+      margin-right: -1.5vmin;
+      margin-top: -5vmin;
     }
 
-    &:nth-of-type(9) {
-      left: 1vh;
-    }
-
-    &:nth-of-type(10) {
-      width: 0.7vh;
-      height: 0.7vh;
-      position: relative;
-      right: 1vh;
-      margin-bottom: -4.5vh;
+    &:nth-of-type(8), &:nth-of-type(10) {
+      width: 0.7vmin;
+      height: 0.7vmin;
+      margin-right: 1.5vmin;
     }
   }
 }
@@ -119,8 +122,8 @@
   background-image: repeating-linear-gradient(90deg,
       white,
       white 50%,
-      black 50%,
-      black);
+      #202020 50%,
+      #202020);
 }
 
 .settings {

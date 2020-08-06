@@ -72,7 +72,7 @@ export class ChordFinderComponent implements OnInit {
     this.notes = [];
     this.markedNotes = [];
     for (let i = 0; i < this.notesN; i++) {
-      this.notes.push(new Note(i % 12));
+      this.notes.push(new Note(i));
       this.markedNotes.push(false);
     }
   }
@@ -103,10 +103,10 @@ export class ChordFinderComponent implements OnInit {
     return selectedNotes;
   }
 
-  public async play(id?: number) {
+  public play() {
     for (let i = 0; i < this.markedNotes.length; i++) {
       if (this.markedNotes[i]) {
-        this.audioService.play(i - 12);
+        this.audioService.play(i + 24, 500);
       }
     }
     this.analyze();
