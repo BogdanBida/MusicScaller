@@ -1,21 +1,23 @@
 <app-link-to-home></app-link-to-home>
 <div class="wrapper">
   <div class="fret">
-    <div class="string-row" *ngFor="let stringRoot of stringRows; let i = index">
-      <div class="string-pitcher" (wheel)="wheelPeg($event, i)">
-        <button (click)="pegChange(i, false)">&#9668;</button>
-        <button (click)="pegChange(i, true)">&#9658;</button>
-      </div>
-      <div class="note" *ngFor="let f of [].constructor(FRETS_AMOUNT); let fret = index" 
-      (mousedown)="play(fret + stringRoot.getId())" (mouseup)="stopAudio()" 
-      (mouseleave)="stopAudio()" 
-
+    <div class="strings-wrapper">
+      <div class="string-row" *ngFor="let stringRoot of stringRows; let i = index">
+        <div class="string-pitcher" (wheel)="wheelPeg($event, i)">
+          <button (click)="pegChange(i, false)">&#9668;</button>
+          <button (click)="pegChange(i, true)">&#9658;</button>
+        </div>
+        <div class="note" *ngFor="let f of [].constructor(FRETS_AMOUNT); let fret = index" 
+        (mousedown)="play(fret + stringRoot.getId())" (mouseup)="stopAudio()" 
+        (mouseleave)="stopAudio()" 
+        
         [ngClass]="getStageId(fret + stringRoot.getId()) | notecolor">
         <div class="notename-wrapper">
           {{(fret + stringRoot.getId()) | notename}}
         </div>
       </div>
     </div>
+  </div>
   </div>
   <div class="menu">
     <div>

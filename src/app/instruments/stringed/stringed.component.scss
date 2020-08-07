@@ -9,18 +9,22 @@
 }
 
 .fret {
-  margin-top: 44px;
+  margin-top: 40px;
   border-top: 2px solid #404040;
   border-bottom: 2px solid $main-color;
   border-top: 2px solid $main-color;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  padding: 8px 0;
   overflow-y: auto;
   overflow-x: auto;
+  display: grid;
 }
 
+.strings-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 8px 0;
+}
 
 .string-pitcher {
   height: 100%;
@@ -53,8 +57,20 @@
   border-left: 2px solid $main-color;
   min-width: 900px;
   align-items: center;
-  margin-top: 4px;
-
+  margin-top: 2px;
+  position: relative;
+  &::before {
+    z-index: -1;
+    content: "";
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 0;
+    height: 2px;
+    width: 100%;
+    opacity: 0.3;
+    background: repeating-linear-gradient(
+      to right, #808080 0px, #808080 2px, #a0a0a0 2px, #a0a0a0 6px);
+  }
   &:first-of-type {
     .note:nth-of-type(5),
     .note:nth-of-type(7),
@@ -100,12 +116,12 @@
 
 .note {
   position: relative;
-  padding: 4px;
+  padding: 2px 4px;
   width: calc(95% / 16);
   color: white;
-  border-left: 1px solid #b0b0b0;
-  border-right: 1px solid #b0b0b0;
-  font-size: 2.8vmin;
+  border-left: 2px solid #b0b0b0;
+  font-size: 2.5vmin;
+  height: min-content;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -115,6 +131,9 @@
 .note:not(.note-disabled) .notename-wrapper {
   background-color: rgb(20, 20, 20);
   border-radius: 999px;
+}
+
+.note .notename-wrapper {
   width: 2em;
   padding: 2px;
 }
@@ -148,8 +167,9 @@
 .menu {
   display: flex;
   justify-content: space-around;
-  align-items: center;
-  min-height: 180px;
+  align-items: flex-start;
+  min-height: 160px;
+  padding-top: 4px;
   width: 95%;
   margin-left: 2.5%;
   > div {
@@ -169,7 +189,7 @@
     width: 100%;
   }
   button {
-    font-size: 3vh;
+    font-size: 18px;
     flex: 1 1;
   }
 }

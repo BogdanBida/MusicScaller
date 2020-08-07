@@ -6,13 +6,6 @@
     </svg>
     <span>Saxophone</span>
   </button>
-  <button routerLink="harmonica" (click)="btnId = 1" [ngClass]="{'selected':btnId==1}">
-    <svg>
-      <image xlink:href="../../assets/icons/svg/harmonica.svg" src="../../assets/icons/harmonica.png" width="100%"
-        height="100%" />
-    </svg>
-    <span>Harmonica</span>
-  </button>
   <button routerLink="block-flute" (click)="btnId = 2" [ngClass]="{'selected':btnId==2}">
     <svg>
       <image xlink:href="../../assets/icons/svg/block-flute.svg" src="../../assets/icons/block-flute.png" width="100%"
@@ -26,5 +19,12 @@
         height="100%" />
     </svg>
     <span>Trumpet</span>
+  </button>
+  <button routerLink="harmonica" (click)="btnId = 1" [ngClass]="{'selected':btnId==1}">
+    <svg>
+      <image xlink:href="../../assets/icons/svg/harmonica.svg" src="../../assets/icons/harmonica.png" width="100%"
+        height="100%" />
+    </svg>
+    <span>Harmonica</span>
   </button>
 </nav>

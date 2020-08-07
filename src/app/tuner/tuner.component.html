@@ -1,12 +1,13 @@
-<a class="backlink" routerLink="/home">BACK</a>
+<app-link-to-home></app-link-to-home>
 <div class="wrapper">
-
-  <section class="main">
-    
-    <canvas id="guitar-tuner" height="300"></canvas>
-
-  </section>
-  <section class="chart">
-    
-  </section>
+  <div class="sidebar col">
+    <div class="info col">
+      <div class="notename"><span *ngIf="this.data.pitch">{{getNoteName(data.note)}}</span></div>
+      <div>Pitch: <span *ngIf="this.data.pitch">{{data?.pitch}}Hz</span></div>
+      <div>Detune: <span *ngIf="this.data.pitch">{{data.detune}} cent</span></div>
+    </div>
+    <button class="button rec-btn" (click)="toogleRec()">REC</button>
+  </div>
+  <canvas #canv>
+  </canvas>
 </div>
